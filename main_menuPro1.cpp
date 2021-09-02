@@ -1,6 +1,30 @@
 #include<iostream>
 using namespace std;
-
+struct patient_phone_number
+{
+  int area_code,exchange_number,u_number;
+};
+struct address
+{
+  int house_number;
+  char country[20],region[20],town[20],city[20],sub_city[20],kebele[20];
+} ;
+struct date
+{
+  int day,month,year;
+};
+struct patient
+{
+  char patient_name[25];
+  int patient_age,patient_id;
+  char patient_sex;
+  address patient_address;
+  float patient_weight,patient_hegiht;
+  date patient_birthday;
+  date patient_arrival_date;
+  phone patient_phone_number;
+  char patient_history[100000];
+};
 struct MenuInterface
 {
     void mainMenu()
