@@ -1,19 +1,19 @@
 #include<iostream>
 using namespace std;
-struct patient_phone_number
+struct patient_phone_number //structure for any phone number related issues
 {
   int area_code,exchange_number,u_number;
 };
-struct address
+struct address  //structure for the address that are needed in the patients, doctors or any related informations
 {
   int house_number;
   char country[20],region[20],town[20],city[20],sub_city[20],kebele[20];
 } ;
-struct date
+struct date // date related issues like birthday, arrival date and others
 {
   int day,month,year;
 };
-struct patient
+struct patient  // structure used for accessing any patient related informations
 {
   char patient_name[25];
   int patient_age,patient_id;
@@ -24,6 +24,41 @@ struct patient
   date patient_arrival_date;
   phone patient_phone_number;
   char patient_history[100000];
+};
+struct hospital //structure for hospital information
+{
+    char hospital_name[20];
+    int hospital_id;
+    address hospital_location;
+    char specialization[20];
+    char standard;
+};
+struct hospital_room// structure for hospital rooms information
+{
+    int room_id;
+    char room_type[10];
+    char free_room;
+};
+struct doctor   //structure for doctors information
+{
+    char doctor_name[20];
+    int doctor_id;
+    int doctor_age;
+    char doctor_qualification;
+    char doctor_speciality;
+    date doctor_graduation;
+    phone doctor_phone_number;
+    address doctor_address;
+};
+struct finance  //structure for resolving financial cases
+{
+    float card_cost,room_cost,xray_cost,mri_cost;
+};
+struct relative //structure for patient's relatives information
+{
+    char relative_name[20];
+    address relative_contact;
+    string relation;
 };
 struct MenuInterface
 {
