@@ -1,6 +1,7 @@
 #include<iostream>
 #include <string.h>
 using namespace std;
+const int Max_working_set = 3;
 struct phone //structure for any phone number related issues
 {
   int area_code,exchange_number,u_number;
@@ -55,7 +56,7 @@ struct hospital_room// structure for hospital rooms information
     char room_type[10];
     char free_room;
 };
-struct doctor   //structure for doctors information
+struct Doctor_model   //structure for doctors information
 {
     char doctor_name[20];
     int doctor_id;
@@ -65,6 +66,10 @@ struct doctor   //structure for doctors information
     date doctor_graduation;
     phone doctor_phone_number;
     address doctor_address;
+    int Work_hours[Max_working_set][2];
+    // multiple Work hours which begin and end time(expressed in int) for this every doctor has 3 work set morning afternoon and evening and each have time start and end
+    int Max_patients;
+    string Working_days[7];
 };
 struct finance  //structure for resolving financial cases
 {
@@ -180,27 +185,6 @@ cin>>patient_info[i].patient_history;
 cout<<endl;
 }
   }
-float bmindex(float w,float h)
-{
-  float bmi;
-  bmi=w/(h*h);
-  return bmi;
-}
-void read()
-{
-	 int n;
-	cout<<"Number of patients=";      cin>>n;
-	
-  for(int i=0;i<n;i++)
-  { cout<<"Enter your Full name ";	 cin>>pb[i].patient_fname>>pb[i].patient_lname;
-    cout<<"Your gender=";    	 cin>>pb[i].patient_sex;
-    cout<<"Your weight=";    	 cin>>pb[i].patient_weight;
-    cout<<"Your height=";	 	 cin>>pb[i].patient_height;
-    cout<<"Your bmi=";			
-     cout<<bmindex(pb[i].patient_weight,pb[i].patient_height);
-  }       
-	
-}
 struct MenuInterface
 {
     void mainMenu()
