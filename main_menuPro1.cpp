@@ -1,4 +1,5 @@
 #include<iostream>
+#include <string.h>
 using namespace std;
 struct phone //structure for any phone number related issues
 {
