@@ -50,9 +50,9 @@ struct hospital //structure for hospital information
     char specialization[20];
     char standard;
 };
-struct hospital_room// structure for hospital rooms information
+struct hospital_model// structure for hospital rooms information
 {
-    int room_id;
+    int rooms[50];
     char room_type[10];
     char free_room;
 };
@@ -74,6 +74,12 @@ struct Doctor_model   //structure for doctors information
 struct finance  //structure for resolving financial cases
 {
     float card_cost,room_cost,xray_cost,mri_cost;
+};
+struct hospital_model
+{
+    string name;
+    int rooms[50];
+    // if a room is available, 0 else if not available, -1
 };
 void inpatient_reg()   //inpatient registration form filled by patient
 {
@@ -185,6 +191,66 @@ cin>>patient_info[i].patient_history;
 cout<<endl;
 }
   }
+bool is_working_at_hours(Doctor_model *Doctor, int hour)
+{
+
+    for (int i = 0; i != Max_working_set; i++)
+    {
+        if (Doctor->Work_hours[i][0] < hour || Doctor->Work_hours[i][1] < hour)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool is_working_at_day(Doctor_model *Doctor, string day)
+{
+    for (int i = 0; i != 7; i++)
+    {
+        if (Doctor->Working_days[i] == day)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool is_room_available(hospital_model *hospital, int room_number)
+{
+    if (hospital->rooms[room_number] == 0)
+    {
+        return true;
+    }
+    return false;
+}
+
+bool is_docter_at_max_capacity(Doctor_model *Doctor, int Current_patient)
+{
+    if (Doctor->Max_patients >= Current_patient)
+    {
+        return true;
+    }
+    return false;
+}
+hospital_model init_hospital()
+{
+    hospital_model h1;
+    h1.name = " ";
+    h1.rooms[0] = 0;
+    h1.rooms[1] = -1;
+    return h1;
+}
+Doctor_model init_Doctor()
+{
+    Doctor_model Doctor;
+    Doctor.name = " ",
+    Doctor.Work_hours[0][0] = 8;
+    Doctor.Work_hours[0][1] = 17;
+    Doctor.Working_days[0] = "Monday";
+    return Doctor;
+}
+
 struct MenuInterface
 {
     void mainMenu()
