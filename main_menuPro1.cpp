@@ -381,6 +381,27 @@ struct MenuInterface
     }
 
 };
+float bmindex(float w,float h)
+{
+  float bmi;
+  bmi=w/(h*h);
+  return bmi;
+}
+void read()
+{
+	 int n;
+	cout<<"Number of patients=";      cin>>n;
+	
+  for(int i=0;i<n;i++)
+  { cout<<"Enter your Full name ";	 cin>>pb[i].patient_fname>>pb[i].patient_lname;
+    cout<<"Your gender=";    	 cin>>pb[i].patient_sex;
+    cout<<"Your weight=";    	 cin>>pb[i].patient_weight;
+    cout<<"Your height=";	 	 cin>>pb[i].patient_height;
+    cout<<"Your bmi=";			
+     cout<<bmindex(pb[i].patient_weight,pb[i].patient_height);
+  }       
+	
+}
 int main()
 {
 
