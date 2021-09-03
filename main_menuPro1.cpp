@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-struct patient_phone_number //structure for any phone number related issues
+struct phone //structure for any phone number related issues
 {
   int area_code,exchange_number,u_number;
 };
@@ -14,21 +14,23 @@ struct date // date related issues like birthday, arrival date and others
   int day,month,year;
 };
 
-struct relative{ //patient's relative information 
-char relative_fname,relative_lname, relative_address;
+struct relative //patient's relative information 
+{ 
+char relative_fname[50],relative_lname[50], relative_address[50];
 string relation;
 int relative_contact;
 };
 
 struct reg_date_time{ //inpatient registration date and time
-int dd1, mm1, yy1, hr, min;
+int dd1, mm1, yy1, hr, Min;
 };
 
 struct patient  // structure used for accessing any patient related informations
 {
   char patient_fname[25], patient_lname[25];  
   int patient_age,patient_id;
-  char patient_sex;
+  char patient_email[100];
+  char patient_sex[10];
   address patient_address;
   float patient_weight,patient_hegiht;
   date patient_birthday;
@@ -36,7 +38,6 @@ struct patient  // structure used for accessing any patient related informations
   phone patient_phone_number;
   char patient_history[100000];
   string martial_status;
-  reg_date_time date_time;
   relative r_info;
 };
 struct hospital //structure for hospital information
@@ -68,12 +69,116 @@ struct finance  //structure for resolving financial cases
 {
     float card_cost,room_cost,xray_cost,mri_cost;
 };
-struct relative //structure for patient's relatives information
+void inpatient_reg()   //inpatient registration form filled by patient
 {
-    char relative_name[20];
-    address relative_contact;
-    string relation;
-};
+int numofpatient;
+cout<<"please enter the number of patient you want to register: ";
+cin>>numofpatient;
+patient patient_info[numofpatient];
+cout<<"                Hospital Patient Registration Form                 \n\n"<<endl;
+cout<<"          New Patient Registration   \n\n";
+cout<<"      please fill in the form below\n\n";
+for(int i=0;i<numofpatient;++i){
+cout<<"Patient first name: ";
+cin>>patient_info[i].patient_fname;
+cout<<endl;
+cout<<"Patient last name: ";
+cin>>patient_info[i].patient_lname;
+cout<<endl;
+cout<<"Age: ";
+cin>>patient_info[i].patient_age;
+cout<<endl;
+cout<<"Weight: ";
+cin>>patient_info[i].patient_weight;
+cout<<"Enter address: "<<endl;
+cout<<"Country: ";
+cin>>patient_info[i].patient_address.country;
+cout<<endl;
+cout<<"Region: ";
+cin>>patient_info[i].patient_address.region;
+cout<<endl;
+cout<<"City: ";
+cin>>patient_info[i].patient_address.city;
+cout<<endl;
+cout<<"Town: ";
+cin>>patient_info[i].patient_address.town;
+cout<<endl;
+cout<<"Sub-city: ";
+cin>>patient_info[i].patient_address.sub_city;
+cout<<endl;
+cout<<"Kebele: ";
+cin>>patient_info[i].patient_address.kebele;
+cout<<endl;
+cout<<"House number: ";
+cin>>patient_info[i].patient_address.house_number;
+cout<<endl;
+cout<<"Enter phone number-cell phone/work "<<endl;
+cout<<"Area code: ";
+cin>>patient_info[i].patient_phone_number.area_code;
+cout<<endl;
+cout<<"Exchange number: ";
+cin>>patient_info[i].patient_phone_number.exchange_number;
+cout<<endl;
+cout<<"U_number: ";
+cin>>patient_info[i].patient_phone_number.u_number;
+cout<<endl;
+cout<<"Email(optional): ";
+cin>>patient_info[i].patient_email;
+cout<<endl;
+cout<<"Sex: ";
+cin>>patient_info[i].patient_sex;
+cout<<endl;
+cout<<"Registration date and time"<<endl;
+cout<<"Month: ";
+cin>>patient_info[i].date_time.mm1;
+cout<<endl;
+cout<<"Date: ";
+cin>>patient_info[i].date_time.dd1;
+cout<<endl;
+cout<<"Year: ";
+cin>>patient_info[i].date_time.yy1;
+cout<<endl;
+cout<<"Hour: ";
+cin>>patient_info[i].date_time.hr;
+cout<<endl;
+cout<<"Minute: ";
+cin>>patient_info[i].date_time.Min;
+cout<<endl;
+cout<<"Date of Birth"<<endl;
+cout<<"Month: ";
+cin>>patient_info[i].patient_birthday.month;
+cout<<endl;
+cout<<"Date: ";
+cin>>patient_info[i].patient_birthday.day;
+cout<<endl;
+cout<<"year: ";
+cin>>patient_info[i].patient_birthday.year;
+cout<<endl;
+cout<<"Marital Status: ";
+cin>>patient_info[i].martial_status;
+cout<<"\n\n";
+cout<<"In case of emergency\n\n";
+cout<<"Emergency/relative Contact: "<<endl;
+cout<<" Relative's first name: ";
+cin>>patient_info[i].r_info.relative_fname;
+cout<<endl;
+cout<<"Relative's last name: ";
+cin>>patient_info[i].r_info.relative_lname;
+cout<<endl;
+cout<<"Relative's address: ";
+cin>>patient_info[i].r_info.relative_address;
+cout<<endl;
+cout<<"Relation ship: ";
+cin>>patient_info[i].r_info.relation;
+cout<<endl;
+cout<<"Contact number: ";
+cin>>patient_info[i].r_info.relative_contact;
+cout<<endl;
+cout<<"Taking any medication, currently?"<<endl;
+cin>>patient_info[i].patient_history;
+cout<<endl;
+}
+  }
 struct MenuInterface
 {
     void mainMenu()
@@ -166,29 +271,10 @@ struct MenuInterface
 
     void signUpDetails()
     {
-        string fName, lName, address, password;
-        int tellNumber;
-        char gender;
 
         cout<<"\n\n\t\t-----------Patient Sign Up Page-----------\n";
+        inpatient_reg();
 
-        cout<<"\n\t\tEnter First Name: ";
-        cin>>fName;
-
-        cout<<"\n\t\tEnter Last Name: ";
-        cin>>lName;
-
-        cout<<"\n\t\tEnter Current Address: ";
-        cin>>address;
-
-        cout<<"\n\t\tEnter Telephone Number: ";
-        cin>>tellNumber;
-
-        cout<<"\n\t\tEnter Gender(M/F): ";
-        cin>>gender;
-
-        cout<<"\n\t\tEnter a Password: ";
-        cin>>password;
     }
 
     void SA_Login()
@@ -294,123 +380,9 @@ struct MenuInterface
     }
 
 };
-
-void inpatient_reg(){ //inpatient registration form filled by patient
-int numofpatient;
-patient patient_info[numofpatient];
-cout<<"                Hospital Patient Registration Form                 \n\n"<<endl;
-cout<<"          New Patient Registration   \n\n";
-cout<<"      please fill in the form below\n\n";
-for(int i=0;i<numofpatient;++i){
-cout<<"Patient first name: ";
-cin>>patient_info[i].patient_fname;
-cout<<endl;
-cout<<"Patient last name: ";
-cin>>patient_info[i].patient_lname;
-cout<<endl;
-cout<<"Age: ";
-cin>>patient_info[i].patient_age;
-cout<<endl;
-cout<<"Weight: ";
-cin>>patient_info[i].patient_weight;
-cout<<"Enter address: "<<endl;
-cout<<"Country: ";
-cin>>patient_info[i].patient_address.country;
-cout<<endl;
-cout<<"Region: ";
-cin>>patient_info[i].patient_address.region;
-cout<<endl;
-cout<<"City: ";
-cin>>patient_info[i].patient_address.city;
-cout<<endl;
-cout<<"Town: ";
-cin>>patient_info[i].patient_address.town;
-cout<<endl;
-cout<<"Sub-city: ";
-cin>>patient_info[i].patient_address.sub_city;
-cout<<endl;
-cout<<"Kebele: ";
-cin>>patient_info[i].patient_address.kebele;
-cout<<endl;
-cout<<"House number: ";
-cin>>patient_info[i].patient_address.house_number;
-cout<<endl;
-cout<<"Enter phone number-cell phone/work "<<endl;
-cout<<"Area code: ";
-cin>>patient_info[i].patient_phone_number.area_code;
-cout<<endl;
-cout<<"Exchange number: ";
-cin>>patient_info[i].patient_phone_number.exchange_number;
-cout<<endl;
-cout<<"U_number: ";
-cin>>patient_info[i].patient_phone_number.u_number;
-cout<<endl;
-cout<<"Email(optional): ";
-cin>>patient_info[i].patient_email;
-cout<<endl;
-cout<<"Sex: ";
-cin>>patient_info[i].patient_sex;
-cout<<endl;
-cout<<"Registration date and time"<<endl;
-cout<<"Month: ";
-cin>>patient_info[i].date_time.mm1;
-cout<<endl;
-cout<<"Date: ";
-cin>>patient_info[i].date_time.dd1;
-cout<<endl;
-cout<<"Year: ";
-cin>>patient_info[i].date_time.yy1;
-cout<<endl;
-cout<<"Hour: ";
-cin>>patient_info[i].date_time.hr;
-cout<<endl;
-cout<<"Minute: ";
-cin>>patient_info[i].date_time.min;
-cout<<endl;
-cout<<"Date of Birth"<<endl;
-cout<<"Month: ";
-cin>>patient_info[i].patient_birthday.mm;
-cout<<endl;
-cout<<"Date: ";
-cin>>patient_info[i].patient_birthday.dd;
-cout<<endl;
-cout<<"year: ";
-cin>>patient_info[i].patient_birthday.yy;
-cout<<endl;
-cout<<"Marital Status: ";
-cin>>patient_info[i].martial_status;
-cout<<"\n\n";
-cout<<"Incase of emergency\n\n";
-cout<<"Emergency/relative Contact: "<<endl;
-cout<<" Relative's first name: ";
-cin>>patient_info[i].r_info.relative_fname;
-cout<<endl;
-cout<<"Relative's last name: ";
-cin>>patient_info[i].r_info.relative_lname;
-cout<<endl;
-cout<<"Relative's address: ";
-cin>>patient_info[i].r_info.relative_address;
-cout<<endl;
-cout<<"Relation ship: ";
-cin>>patient_info[i].r_info.relation;
-cout<<endl;
-cout<<"Contact number: ";
-cin>>patient_info[i].r_info.relative_contact;
-cout<<endl;
-cout<<"Taking any medication, currently?"<<endl;
-cin>>patient_info[i].patient_history;
-cout<<endl;
-}
-  }
-
 int main()
 {
-int numofpatient;
-cout<<"please enter the number of patient you want to register: ";
-cin>>numofpatient;
-patient patient_info[numofpatient];
 
-    inpatient_reg();
     MenuInterface interface;
     interface.mainMenu();
     return 0;
