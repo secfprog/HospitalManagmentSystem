@@ -162,16 +162,27 @@ struct MenuInterface
 
     void LoginDetails(string role)
     {
-        string hospitalID, password;
+        string hospitalID;
+        char password[50];
+        char defualt_password[50]="doctor1234";
         int input;
 
         cout<<"\t\t-----------"<<role<<" Login Page-----------\n";
 
-        cout<<"\n\t\t Hospital ID: ";
+        line172:cout<<"\n\t\t Hospital ID: ";
         cin>>hospitalID;
 
         cout<<"\n\t\t Password: ";
         cin>>password;
+       if((strcmp(password,default_password)==0))
+        {
+            cout<<"!!!!!!!!!!!!!!!!!!! Login Successfully !!!!!!!!!!!!!!!!!!!! "<<endl;
+        }
+        else
+        {
+            cout<<"!!!!!!!!!!!!!!!!!!  Please try again  !!!!!!!!!!!!!!!!!!!!!! "<<endl;
+            goto line172;
+        }
     }
 
     void signUpDetails()
@@ -184,13 +195,24 @@ struct MenuInterface
 
     void SA_Login()
     {
-        string userName, password;
+        string userName;
+        char password[50];
+        char default_password[50]="systemadministrator1234";
 
-        cout<<"\n\t\tEnter UserName: ";
+       line202: cout<<"\n\t\tEnter UserName: ";
         cin>>userName;
 
         cout<<"\n\t\tEnter Password: ";
         cin>>password;
+       if((strcmp(password,default_password)==0))
+        {
+            cout<<"!!!!!!!!!!!!!!!!!!! Login Successfully !!!!!!!!!!!!!!!!!!!! "<<endl;
+        }
+        else
+        {
+            cout<<"!!!!!!!!!!!!!!!!!!!  Please try again  !!!!!!!!!!!!!!!!!!!!!! "<<endl;
+            goto line202;
+        }
     }
 
     void SA_subMenu()
