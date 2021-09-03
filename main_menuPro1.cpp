@@ -81,176 +81,13 @@ struct hospital_model
     int rooms[50];
     // if a room is available, 0 else if not available, -1
 };
-void inpatient_reg()   //inpatient registration form filled by patient
-{
-int numofpatient;
-cout<<"please enter the number of patient you want to register: ";
-cin>>numofpatient;
-patient patient_info[numofpatient];
-cout<<"                Hospital Patient Registration Form                 \n\n"<<endl;
-cout<<"          New Patient Registration   \n\n";
-cout<<"      please fill in the form below\n\n";
-for(int i=0;i<numofpatient;++i){
-cout<<"Patient first name: ";
-cin>>patient_info[i].patient_fname;
-cout<<endl;
-cout<<"Patient last name: ";
-cin>>patient_info[i].patient_lname;
-cout<<endl;
-cout<<"Age: ";
-cin>>patient_info[i].patient_age;
-cout<<endl;
-cout<<"Weight: ";
-cin>>patient_info[i].patient_weight;
-cout<<"Enter address: "<<endl;
-cout<<"Country: ";
-cin>>patient_info[i].patient_address.country;
-cout<<endl;
-cout<<"Region: ";
-cin>>patient_info[i].patient_address.region;
-cout<<endl;
-cout<<"City: ";
-cin>>patient_info[i].patient_address.city;
-cout<<endl;
-cout<<"Town: ";
-cin>>patient_info[i].patient_address.town;
-cout<<endl;
-cout<<"Sub-city: ";
-cin>>patient_info[i].patient_address.sub_city;
-cout<<endl;
-cout<<"Kebele: ";
-cin>>patient_info[i].patient_address.kebele;
-cout<<endl;
-cout<<"House number: ";
-cin>>patient_info[i].patient_address.house_number;
-cout<<endl;
-cout<<"Enter phone number-cell phone/work "<<endl;
-cout<<"Area code: ";
-cin>>patient_info[i].patient_phone_number.area_code;
-cout<<endl;
-cout<<"Exchange number: ";
-cin>>patient_info[i].patient_phone_number.exchange_number;
-cout<<endl;
-cout<<"U_number: ";
-cin>>patient_info[i].patient_phone_number.u_number;
-cout<<endl;
-cout<<"Email(optional): ";
-cin>>patient_info[i].patient_email;
-cout<<endl;
-cout<<"Sex: ";
-cin>>patient_info[i].patient_sex;
-cout<<endl;
-cout<<"Registration date and time"<<endl;
-cout<<"Month: ";
-cin>>patient_info[i].date_time.mm1;
-cout<<endl;
-cout<<"Date: ";
-cin>>patient_info[i].date_time.dd1;
-cout<<endl;
-cout<<"Year: ";
-cin>>patient_info[i].date_time.yy1;
-cout<<endl;
-cout<<"Hour: ";
-cin>>patient_info[i].date_time.hr;
-cout<<endl;
-cout<<"Minute: ";
-cin>>patient_info[i].date_time.Min;
-cout<<endl;
-cout<<"Date of Birth"<<endl;
-cout<<"Month: ";
-cin>>patient_info[i].patient_birthday.month;
-cout<<endl;
-cout<<"Date: ";
-cin>>patient_info[i].patient_birthday.day;
-cout<<endl;
-cout<<"year: ";
-cin>>patient_info[i].patient_birthday.year;
-cout<<endl;
-cout<<"Marital Status: ";
-cin>>patient_info[i].martial_status;
-cout<<"\n\n";
-cout<<"In case of emergency\n\n";
-cout<<"Emergency/relative Contact: "<<endl;
-cout<<" Relative's first name: ";
-cin>>patient_info[i].r_info.relative_fname;
-cout<<endl;
-cout<<"Relative's last name: ";
-cin>>patient_info[i].r_info.relative_lname;
-cout<<endl;
-cout<<"Relative's address: ";
-cin>>patient_info[i].r_info.relative_address;
-cout<<endl;
-cout<<"Relation ship: ";
-cin>>patient_info[i].r_info.relation;
-cout<<endl;
-cout<<"Contact number: ";
-cin>>patient_info[i].r_info.relative_contact;
-cout<<endl;
-cout<<"Taking any medication, currently?"<<endl;
-cin>>patient_info[i].patient_history;
-cout<<endl;
-}
-  }
-bool is_working_at_hours(Doctor_model *Doctor, int hour)
-{
-
-    for (int i = 0; i != Max_working_set; i++)
-    {
-        if (Doctor->Work_hours[i][0] < hour || Doctor->Work_hours[i][1] < hour)
-        {
-            return true;
-        }
-    }
-    return false;
-}
-
-bool is_working_at_day(Doctor_model *Doctor, string day)
-{
-    for (int i = 0; i != 7; i++)
-    {
-        if (Doctor->Working_days[i] == day)
-        {
-            return true;
-        }
-    }
-    return false;
-}
-
-bool is_room_available(hospital_model *hospital, int room_number)
-{
-    if (hospital->rooms[room_number] == 0)
-    {
-        return true;
-    }
-    return false;
-}
-
-bool is_docter_at_max_capacity(Doctor_model *Doctor, int Current_patient)
-{
-    if (Doctor->Max_patients >= Current_patient)
-    {
-        return true;
-    }
-    return false;
-}
-hospital_model init_hospital()
-{
-    hospital_model h1;
-    h1.name = " ";
-    h1.rooms[0] = 0;
-    h1.rooms[1] = -1;
-    return h1;
-}
-Doctor_model init_Doctor()
-{
-    Doctor_model Doctor;
-    Doctor.name = " ",
-    Doctor.Work_hours[0][0] = 8;
-    Doctor.Work_hours[0][1] = 17;
-    Doctor.Working_days[0] = "Monday";
-    return Doctor;
-}
-
+void inpatient_reg();   //inpatient registration form filled by patient
+bool is_working_at_hours(Doctor_model *Doctor, int hour);
+bool is_working_at_day(Doctor_model *Doctor, string day);
+bool is_room_available(hospital_model *hospital, int room_number);
+bool is_docter_at_max_capacity(Doctor_model *Doctor, int Current_patient);
+hospital_model init_hospital();
+Doctor_model init_Doctor();
 struct MenuInterface
 {
     void mainMenu()
@@ -459,6 +296,171 @@ int main()
     interface.mainMenu();
     return 0;
 }
+void inpatient_reg()
+{
+int numofpatient;
+cout<<"please enter the number of patient you want to register: ";
+cin>>numofpatient;
+patient patient_info[numofpatient];
+cout<<"                Hospital Patient Registration Form                 \n\n"<<endl;
+cout<<"          New Patient Registration   \n\n";
+cout<<"      please fill in the form below\n\n";
+for(int i=0;i<numofpatient;++i){
+cout<<"Patient first name: ";
+cin>>patient_info[i].patient_fname;
+cout<<endl;
+cout<<"Patient last name: ";
+cin>>patient_info[i].patient_lname;
+cout<<endl;
+cout<<"Age: ";
+cin>>patient_info[i].patient_age;
+cout<<endl;
+cout<<"Weight: ";
+cin>>patient_info[i].patient_weight;
+cout<<"Enter address: "<<endl;
+cout<<"Country: ";
+cin>>patient_info[i].patient_address.country;
+cout<<endl;
+cout<<"Region: ";
+cin>>patient_info[i].patient_address.region;
+cout<<endl;
+cout<<"City: ";
+cin>>patient_info[i].patient_address.city;
+cout<<endl;
+cout<<"Town: ";
+cin>>patient_info[i].patient_address.town;
+cout<<endl;
+cout<<"Sub-city: ";
+cin>>patient_info[i].patient_address.sub_city;
+cout<<endl;
+cout<<"Kebele: ";
+cin>>patient_info[i].patient_address.kebele;
+cout<<endl;
+cout<<"House number: ";
+cin>>patient_info[i].patient_address.house_number;
+cout<<endl;
+cout<<"Enter phone number-cell phone/work "<<endl;
+cout<<"Area code: ";
+cin>>patient_info[i].patient_phone_number.area_code;
+cout<<endl;
+cout<<"Exchange number: ";
+cin>>patient_info[i].patient_phone_number.exchange_number;
+cout<<endl;
+cout<<"U_number: ";
+cin>>patient_info[i].patient_phone_number.u_number;
+cout<<endl;
+cout<<"Email(optional): ";
+cin>>patient_info[i].patient_email;
+cout<<endl;
+cout<<"Sex: ";
+cin>>patient_info[i].patient_sex;
+cout<<endl;
+cout<<"Registration date and time"<<endl;
+cout<<"Month: ";
+cin>>patient_info[i].date_time.mm1;
+cout<<endl;
+cout<<"Date: ";
+cin>>patient_info[i].date_time.dd1;
+cout<<endl;
+cout<<"Year: ";
+cin>>patient_info[i].date_time.yy1;
+cout<<endl;
+cout<<"Hour: ";
+cin>>patient_info[i].date_time.hr;
+cout<<endl;
+cout<<"Minute: ";
+cin>>patient_info[i].date_time.Min;
+cout<<endl;
+cout<<"Date of Birth"<<endl;
+cout<<"Month: ";
+cin>>patient_info[i].patient_birthday.month;
+cout<<endl;
+cout<<"Date: ";
+cin>>patient_info[i].patient_birthday.day;
+cout<<endl;
+cout<<"year: ";
+cin>>patient_info[i].patient_birthday.year;
+cout<<endl;
+cout<<"Marital Status: ";
+cin>>patient_info[i].martial_status;
+cout<<"\n\n";
+cout<<"In case of emergency\n\n";
+cout<<"Emergency/relative Contact: "<<endl;
+cout<<" Relative's first name: ";
+cin>>patient_info[i].r_info.relative_fname;
+cout<<endl;
+cout<<"Relative's last name: ";
+cin>>patient_info[i].r_info.relative_lname;
+cout<<endl;
+cout<<"Relative's address: ";
+cin>>patient_info[i].r_info.relative_address;
+cout<<endl;
+cout<<"Relation ship: ";
+cin>>patient_info[i].r_info.relation;
+cout<<endl;
+cout<<"Contact number: ";
+cin>>patient_info[i].r_info.relative_contact;
+cout<<endl;
+cout<<"Taking any medication, currently?"<<endl;
+cin>>patient_info[i].patient_history;
+cout<<endl;
+cout<<"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Your registration is completed successfully !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! "<<endl;
+}
+  }
+bool is_working_at_hours(Doctor_model *Doctor, int hour)
+{
 
-
+    for (int i = 0; i != Max_working_set; i++)
+    {
+        if (Doctor->Work_hours[i][0] < hour || Doctor->Work_hours[i][1] < hour)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+bool is_working_at_day(Doctor_model *Doctor, string day)
+{
+    for (int i = 0; i != 7; i++)
+    {
+        if (Doctor->Working_days[i] == day)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+bool is_room_available(hospital_model *hospital, int room_number)
+{
+    if (hospital->rooms[room_number] == 0)
+    {
+        return true;
+    }
+    return false;
+}
+bool is_docter_at_max_capacity(Doctor_model *Doctor, int Current_patient)
+{
+    if (Doctor->Max_patients >= Current_patient)
+    {
+        return true;
+    }
+    return false;
+}
+hospital_model init_hospital()
+{
+    hospital_model h1;
+    h1.name = " ";
+    h1.rooms[0] = 0;
+    h1.rooms[1] = -1;
+    return h1;
+}
+Doctor_model init_Doctor()
+{
+    Doctor_model Doctor;
+    Doctor.name = " ",
+    Doctor.Work_hours[0][0] = 8;
+    Doctor.Work_hours[0][1] = 17;
+    Doctor.Working_days[0] = "Monday";
+    return Doctor;
+}
 
