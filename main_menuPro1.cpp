@@ -52,9 +52,11 @@ struct hospital //structure for hospital information
 };
 struct hospital_model// structure for hospital rooms information
 {
+    string name;
     int rooms[50];
     char room_type[10];
     char free_room;
+  // if a room is available, 0 else if not available, -1
 };
 struct Doctor_model   //structure for doctors information
 {
@@ -74,12 +76,6 @@ struct Doctor_model   //structure for doctors information
 struct finance  //structure for resolving financial cases
 {
     float card_cost,room_cost,xray_cost,mri_cost;
-};
-struct hospital_model
-{
-    string name;
-    int rooms[50];
-    // if a room is available, 0 else if not available, -1
 };
 void inpatient_reg();   //inpatient registration form filled by patient
 bool is_working_at_hours(Doctor_model *Doctor, int hour);
@@ -457,7 +453,7 @@ hospital_model init_hospital()
 Doctor_model init_Doctor()
 {
     Doctor_model Doctor;
-    Doctor.name = " ",
+    Doctor.doctor_name;
     Doctor.Work_hours[0][0] = 8;
     Doctor.Work_hours[0][1] = 17;
     Doctor.Working_days[0] = "Monday";
