@@ -2,21 +2,28 @@
 #include <string.h>
 using namespace std;
 const int Max_working_set = 3;
-struct phone //structure for any phone number related issues
+
+//structure for any phone number related issues
+struct phone
 {
   int area_code,exchange_number, u_number;
 };
-struct address  //structure for the address that are needed in the patients, doctors or any related informations
+
+//structure for the address that are needed in the patients, doctors or any related informations
+struct address  
 {
   int house_number;
   char country[20],region[20],town[20],city[20],sub_city[20],kebele[20];
-} ;
-struct date // date related issues like birthday, arrival date and others
+};
+
+// date related issues like birthday, arrival date and others
+struct date
 {
   int day,month,year;
 };
 
-struct relative //patient's relative information
+//patient's relative information
+struct relative 
 {
     char relative_fname[50],relative_lname[50], relative_address[50];
     string relation;
@@ -26,7 +33,6 @@ struct relative //patient's relative information
 //inpatient registration date and time
 struct reg_date_time
 {
-
     int dd1, mm1, yy1, hr, Min;
 };
 
