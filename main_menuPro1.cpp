@@ -692,6 +692,75 @@ Doctor_model init_Doctor()
     Doctor.Working_days[0] = "Monday";
     return Doctor;
 }
+
+
+{
+
+    cout << "welcome to our hospital" << endl;
+
+    hospital_model h1 = init_hospital();
+    Doctor_model Doctors[10];
+    Doctors[0] = init_Doctor();
+
+    int hour = 10;
+    int room = 10;
+    string day = "";
+
+    cout << "enter hour your good with: " << endl;
+    cin >> hour;
+
+    cout << "enter room your good with: " << endl;
+    cin >> room;
+
+    cout << "enter day your good with: " << endl;
+    cin >> day;
+
+    cout << "is_working_at_hours: " << hour << " ";
+    if (is_working_at_hours(&Doctors[0], hour))
+    {
+        cout << "ok!" << endl;
+    }
+    else
+    {
+        cout << "NOT OK!" << endl;
+    }
+
+    cout << "is_working_at_day: " << day << " ";
+    if (is_working_at_day(&Doctors[0], day))
+    {
+        cout << "AVAILABLE!" << endl;
+    }
+    else
+    {
+        cout << "NOT Availble!" << endl;
+    }
+
+    cout << "is_room_available: " << hour << " ";
+    if (is_room_available(&h1, room))
+    {
+        cout << "Available!" << endl;
+    }
+    else
+    {
+        cout << "NOT Available!" << endl;
+    }
+
+    int Current_patient = 10;
+
+    cout << "is_docter_at_max_capacity: " << Current_patient << " ";
+    if (is_docter_at_max_capacity(&Doctors[0], Current_patient))
+    {
+        cout << "Avalable!" << endl;
+    }
+    else
+    {
+        cout << "NOT Available!" << endl;
+    }
+
+    return 0;
+}
+
+
 void disease_severity()
 {
     int estimation;
