@@ -164,7 +164,7 @@ struct MenuInterface
     {
         string hospitalID;
         char password[50];
-        char defualt_password[50]="doctor1234";
+        char default_password[50]="doctor1234";
         int input;
 
         cout<<"\t\t-----------"<<role<<" Login Page-----------\n";
@@ -250,7 +250,9 @@ struct MenuInterface
 
     void manageDatabase()
     {
-        int input;
+        int input,hour,current_patient;
+        string day;
+        Doctor_model doctor_name;
 
         cout<<"\n\n\t\t-----------Manage Database-----------\n\n";
         cout<<"\t\tPress\n";
@@ -263,10 +265,30 @@ struct MenuInterface
         cout<<"\n\n\t\tInput: ";
         cin>>input;
 
-        if(input==0)
+        if(input==1)
         {
-            SA_subMenu();
+            cout<<"Please enter doctors name: "<<endl;
+            cin>>doctor_name.doctor_name;
+            cout<<"Please enter the day you want to check the availability of doctor "<<doctor_name.doctor_name<<endl;
+            cin>>day;
+            cout<<"In what time do you want to check the availability of doctor "<<doctor_name.doctor_name<<endl;
+            cin>>hour;
+            cout<<"Please enter the total number of patients you have currently: "<<endl;
+            cin>>current_patient;
+            cout<<endl;
+            Doctor_model init_Doctor();
+            cout<<"Is "<<doctor_name.doctor_name<<" available at this hour: "<<endl;
+            is_working_at_hours(&doctor_name, hour);
+            cout<<endl;
+            cout<<"Is "<<doctor_name.doctor_name<<" available in this day: "<<endl;
+            is_working_at_day(&doctor_name, day);
+            cout<<"Are the doctors at their maximum capacity: "<<endl;
+            is_docter_at_max_capacity(&doctor_name, current_patient);
         }
+      else if(input==0)
+      {
+        SA_subMenu();
+      }
     }
 
     void managePricing()
