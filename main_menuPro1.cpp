@@ -16,40 +16,47 @@ struct date // date related issues like birthday, arrival date and others
   int day,month,year;
 };
 
-struct relative //patient's relative information 
-{ 
-char relative_fname[50],relative_lname[50], relative_address[50];
-string relation;
-int relative_contact;
+struct relative //patient's relative information
+{
+    char relative_fname[50],relative_lname[50], relative_address[50];
+    string relation;
+    int relative_contact;
 };
 
-struct reg_date_time{ //inpatient registration date and time
-int dd1, mm1, yy1, hr, Min;
+//inpatient registration date and time
+struct reg_date_time
+{
+
+    int dd1, mm1, yy1, hr, Min;
 };
 
-struct hospital_treatment{ //information provided by hospital representative about patients
-string reasonofvisit;
-string treatment_condition;
-string treatment_outcome;
-int dateofattendance, dateofservice;
-int checkintime, checkouttime;
-string primary_diagnosis, secondary_diagnosis;
-int outdate;
+//information provided by hospital representative about patients
+struct hospital_treatment
+{
+    string reasonofvisit;
+    string treatment_condition;
+    string treatment_outcome;
+    int dateofattendance, dateofservice;
+    int checkintime, checkouttime;
+    string primary_diagnosis, secondary_diagnosis;
+    int outdate;
 };
 
-struct hospital //structure for hospital information
+//structure for hospital information
+struct hospital
 {
     char hospital_name[20];
     int hospital_id;
-    Char hospital_address;
+    char hospital_address;
     char specialization[20];
     char standard;
     char patient_code;
 };
 
-struct patient  // structure used for accessing any patient related informations
+// structure used for accessing any patient related informations
+struct patient
 {
-  char patient_fname[25], patient_lname[25];  
+  char patient_fname[25], patient_lname[25];
   int patient_age,patient_id;
   char patient_email[100];
   char patient_sex[10];
@@ -65,15 +72,17 @@ struct patient  // structure used for accessing any patient related informations
   hospital_treatment t_info;
 };
 
-struct hospital_model// structure for hospital rooms information
+// structure for hospital rooms information
+struct hospital_model
 {
     string name;
     int rooms[50];
     char room_type[10];
-    char free_room;
-  // if a room is available, 0 else if not available, -1
+    char free_room; // if a room is available, 0 else if not available, -1
 };
-struct Doctor_model   //structure for doctors information
+
+//structure for doctors information
+struct Doctor_model
 {
     char doctor_name[20];
     int doctor_id;
@@ -83,20 +92,22 @@ struct Doctor_model   //structure for doctors information
     date doctor_graduation;
     phone doctor_phone_number;
     address doctor_address;
-    int Work_hours[Max_working_set][2];
-    // multiple Work hours which begin and end time(expressed in int) for this every doctor has 3 work set morning afternoon and evening and each have time start and end
+    int Work_hours[Max_working_set][2]; // multiple Work hours which begin and end time(expressed in int) for this every doctor has 3 work set morning afternoon and evening and each have time start and end
     int Max_patients;
     string Working_days[7];
 };
-struct finance  //structure for resolving financial cases
+
+//structure for resolving financial cases
+struct finance
 {
     float card_cost,room_cost,xray_cost,mri_cost;
 };
+
 void inpatient_reg();   //inpatient registration form filled by patient
-void hospital_info();   //hospital information filled by hospital representative during inpatient registration 
-void outpatient_reg();   //out patient registration form filled by the patient 
+void hospital_info();   //hospital information filled by hospital representative during inpatient registration
+void outpatient_reg();   //out patient registration form filled by the patient
 void treatment_authen(); // out patient treatment authentication to be filled by hospital representative
-void treatment_nature(); //treatment information of out patient filled by specilist/ consultant at the health facility
+void treatment_nature(); //treatment information of out patient filled by specialist/ consultant at the health facility
 bool is_working_at_hours(Doctor_model *Doctor, int hour);
 bool is_working_at_day(Doctor_model *Doctor, string day);
 bool is_room_available(hospital_model *hospital, int room_number);
@@ -104,6 +115,7 @@ bool is_docter_at_max_capacity(Doctor_model *Doctor, int Current_patient);
 hospital_model init_hospital();
 Doctor_model init_Doctor();
 void disease_severity();
+
 struct MenuInterface
 {
     void mainMenu()
@@ -360,112 +372,112 @@ int main()
 void inpatient_reg()
 {
 int numofpatient;
-cout<<"please enter the number of patient you want to register: ";
+cout<<"\n\t\tPlease enter the number of patient you want to register: ";
 cin>>numofpatient;
 patient patient_info[numofpatient];
-cout<<"                Hospital Patient Registration Form                 \n\n"<<endl;
-cout<<"          New Patient Registration   \n\n";
-cout<<"      please fill in the form below\n\n";
+cout<<"\n\t\t-----------Hospital Patient Registration Form-----------\n"<<endl;
+cout<<"\t\t------------------New Patient Registration---------------\n";
+
 for(int i=0;i<numofpatient;++i){
-cout<<"Patient first name: ";
+cout<<"\t\tPatient first name: ";
 cin>>patient_info[i].patient_fname;
 cout<<endl;
-cout<<"Patient last name: ";
+cout<<"\t\tPatient last name: ";
 cin>>patient_info[i].patient_lname;
 cout<<endl;
-cout<<"Age: ";
+cout<<"\t\tAge: ";
 cin>>patient_info[i].patient_age;
 cout<<endl;
-cout<<"Weight: ";
+cout<<"\t\tWeight: ";
 cin>>patient_info[i].patient_weight;
-cout<<"Enter address: "<<endl;
-cout<<"Country: ";
+cout<<endl;
+cout<<"\t\tEnter address: "<<endl;
+cout<<"\t\tCountry: ";
 cin>>patient_info[i].patient_address.country;
 cout<<endl;
-cout<<"Region: ";
+cout<<"\t\tRegion: ";
 cin>>patient_info[i].patient_address.region;
 cout<<endl;
-cout<<"City: ";
+cout<<"\t\tCity: ";
 cin>>patient_info[i].patient_address.city;
 cout<<endl;
-cout<<"Town: ";
+cout<<"\t\tTown: ";
 cin>>patient_info[i].patient_address.town;
 cout<<endl;
-cout<<"Sub-city: ";
+cout<<"\t\tSub-city: ";
 cin>>patient_info[i].patient_address.sub_city;
 cout<<endl;
-cout<<"Kebele: ";
+cout<<"\t\tKebele: ";
 cin>>patient_info[i].patient_address.kebele;
 cout<<endl;
-cout<<"House number: ";
+cout<<"\t\tHouse number: ";
 cin>>patient_info[i].patient_address.house_number;
 cout<<endl;
-cout<<"Enter phone number-cell phone/work "<<endl;
-cout<<"Area code: ";
+cout<<"\t\tEnter phone number-cell phone/work "<<endl;
+cout<<"\t\tArea code: ";
 cin>>patient_info[i].patient_phone_number.area_code;
 cout<<endl;
-cout<<"Exchange number: ";
+cout<<"\t\tExchange number: ";
 cin>>patient_info[i].patient_phone_number.exchange_number;
 cout<<endl;
-cout<<"U_number: ";
+cout<<"\t\tU_number: ";
 cin>>patient_info[i].patient_phone_number.u_number;
 cout<<endl;
-cout<<"Email(optional): ";
+cout<<"\t\tEmail(optional): ";
 cin>>patient_info[i].patient_email;
 cout<<endl;
-cout<<"Sex: ";
+cout<<"\t\tSex: ";
 cin>>patient_info[i].patient_sex;
 cout<<endl;
-cout<<"Registration date and time"<<endl;
-cout<<"Month: ";
+cout<<"\t\tRegistration date and time"<<endl;
+cout<<"\t\tMonth: ";
 cin>>patient_info[i].date_time.mm1;
 cout<<endl;
-cout<<"Date: ";
+cout<<"\t\tDate: ";
 cin>>patient_info[i].date_time.dd1;
 cout<<endl;
-cout<<"Year: ";
+cout<<"\t\tYear: ";
 cin>>patient_info[i].date_time.yy1;
 cout<<endl;
-cout<<"Hour: ";
+cout<<"\t\tHour: ";
 cin>>patient_info[i].date_time.hr;
 cout<<endl;
-cout<<"Minute: ";
+cout<<"\t\tMinute: ";
 cin>>patient_info[i].date_time.Min;
 cout<<endl;
-cout<<"Date of Birth"<<endl;
-cout<<"Month: ";
+cout<<"\t\tDate of Birth"<<endl;
+cout<<"\t\tMonth: ";
 cin>>patient_info[i].patient_birthday.month;
 cout<<endl;
-cout<<"Date: ";
+cout<<"\t\tDate: ";
 cin>>patient_info[i].patient_birthday.day;
 cout<<endl;
-cout<<"year: ";
+cout<<"\t\tYear: ";
 cin>>patient_info[i].patient_birthday.year;
 cout<<endl;
-cout<<"Marital Status: ";
+cout<<"\t\tMarital Status: ";
 cin>>patient_info[i].martial_status;
 cout<<"\n\n";
-cout<<"In case of emergency\n\n";
-cout<<"Emergency/relative Contact: "<<endl;
-cout<<" Relative's first name: ";
+cout<<"\t\tIn case of emergency\n\n";
+cout<<"\t\tEmergency/relative Contact: "<<endl;
+cout<<"\t\tRelative's first name: ";
 cin>>patient_info[i].r_info.relative_fname;
 cout<<endl;
-cout<<"Relative's last name: ";
+cout<<"\t\tRelative's last name: ";
 cin>>patient_info[i].r_info.relative_lname;
 cout<<endl;
-cout<<"Relative's address: ";
+cout<<"\t\tRelative's address: ";
 cin>>patient_info[i].r_info.relative_address;
 cout<<endl;
-cout<<"Relation ship: ";
+cout<<"\t\tRelation ship: ";
 cin>>patient_info[i].r_info.relation;
 cout<<endl;
-cout<<"Contact number: ";
+cout<<"\t\tContact number: ";
 cin>>patient_info[i].r_info.relative_contact;
 cout<<endl;
-cout<<"Taking any medication, currently?"<<endl;
+cout<<"\t\tTaking any medication, currently?"<<endl;
 cin>>patient_info[i].patient_history;
 cout<<endl;
-cout<<"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Your registration is completed successfully !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! "<<endl;
 }
   }
 void outpatient_reg(){
@@ -537,7 +549,8 @@ cout<<endl;
 }
 }
 
-void hospital_info(){ 
+void hospital_info(){
+
 int numofpatient;
 patient patient_info[numofpatient];
 cout<<"please enter the neccessary information below\n\n";
@@ -564,7 +577,7 @@ cout<<endl;
 }
 }
 
-void treatment_authen(){  
+void treatment_authen(){
 int numofpatient;
 patient patient_info[numofpatient];
 cout<<"           OUT PATIENT CLAIM FORM\n\n\n";
@@ -598,7 +611,7 @@ cout<<endl;
 }
 }
 
-void treatment_nature(){ 
+void treatment_nature(){
 int numofpatient;
 patient patient_info[numofpatient];
 cout<<"           OUT PATIENT CLAIM FORM\n\n\n";
@@ -707,4 +720,3 @@ void disease_severity()
     }
 
 }
-
