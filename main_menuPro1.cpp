@@ -1,7 +1,7 @@
 #include<iostream>
 #include <string.h>
 using namespace std;
-const int Max_working_set = 3;
+const int Max_working_set = 3;//working day of the doctor set to 3 days a week
 
 //structure for any phone number related issues
 struct phone
