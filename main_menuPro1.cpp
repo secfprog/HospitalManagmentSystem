@@ -512,7 +512,7 @@ void disease_severity()
     Doctor_model name;
     char password[50];
     char defualt_passsword[]="doctor123";
-    line515: cout<<"Please verify that you are a doctor: "<<endl;
+    linex: cout<<"Please verify that you are a doctor: "<<endl;
     cout<<"Please enter your name: "<<endl;
     cin>>name.doctor_name;
     cout<<"Please enter your id: "<<endl;
@@ -535,7 +535,7 @@ void disease_severity()
     else
     {
         cout<<"Your names, id or password is incorrect, Please Try Again: "<<endl;
-        goto line515;
+        goto linex;
     }
 
 }
