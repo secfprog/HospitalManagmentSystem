@@ -4,7 +4,7 @@ using namespace std;
 const int Max_working_set = 3;
 struct phone //structure for any phone number related issues
 {
-  int area_code,exchange_number,u_number;
+  int area_code,exchange_number, u_number;
 };
 struct address  //structure for the address that are needed in the patients, doctors or any related informations
 {
@@ -177,12 +177,12 @@ struct MenuInterface
         cin>>password;
        if((strcmp(password,default_password)==0))
         {
-            cout<<"!!!!!!!!!!!!!!!!!!! Login Successfully !!!!!!!!!!!!!!!!!!!! "<<endl;
+            cout<<"!!!!!!!!!!!!!!!!!! Login Successfully !!!!!!!!!!!!!!!!!!! "<<endl;
             disease_severity();
         }
         else
         {
-            cout<<"!!!!!!!!!!!!!!!!!!  Please try again  !!!!!!!!!!!!!!!!!!!!!! "<<endl;
+            cout<<"!!!!!!!!!!!!!!!!!  Please try again  !!!!!!!!!!!!!!!!!!!!! "<<endl;
             goto line172;
         }
     }
