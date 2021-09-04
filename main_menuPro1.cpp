@@ -27,6 +27,26 @@ struct reg_date_time{ //inpatient registration date and time
 int dd1, mm1, yy1, hr, Min;
 };
 
+struct hospital_treatment{ //information provided by hospital representative about patients
+string reasonofvisit;
+string treatment_condition;
+string treatment_outcome;
+int dateofattendance, dateofservice;
+int checkintime, checkouttime;
+string primary_diagnosis, secondary_diagnosis;
+int outdate;
+};
+
+struct hospital //structure for hospital information
+{
+    char hospital_name[20];
+    int hospital_id;
+    Char hospital_address;
+    char specialization[20];
+    char standard;
+    char patient_code;
+};
+
 struct patient  // structure used for accessing any patient related informations
 {
   char patient_fname[25], patient_lname[25];  
@@ -41,15 +61,10 @@ struct patient  // structure used for accessing any patient related informations
   char patient_history[100000];
   string martial_status;
   relative r_info;
+  hospital detail;
+  hospital_treatment t_info;
 };
-struct hospital //structure for hospital information
-{
-    char hospital_name[20];
-    int hospital_id;
-    address hospital_location;
-    char specialization[20];
-    char standard;
-};
+
 struct hospital_model// structure for hospital rooms information
 {
     string name;
@@ -78,6 +93,10 @@ struct finance  //structure for resolving financial cases
     float card_cost,room_cost,xray_cost,mri_cost;
 };
 void inpatient_reg();   //inpatient registration form filled by patient
+void hospital_info();   //hospital information filled by hospital representative during inpatient registration 
+void outpatient_reg();   //out patient registration form filled by the patient 
+void treatment_authen(); // out patient treatment authentication to be filled by hospital representative
+void treatment_nature(); //treatment information of out patient filled by specilist/ consultant at the health facility
 bool is_working_at_hours(Doctor_model *Doctor, int hour);
 bool is_working_at_day(Doctor_model *Doctor, string day);
 bool is_room_available(hospital_model *hospital, int room_number);
@@ -449,6 +468,155 @@ cout<<endl;
 cout<<"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Your registration is completed successfully !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! "<<endl;
 }
   }
+void outpatient_reg(){
+int numofpatient;
+patient patient_info[numofpatient];
+cout<<"           OUT PATIENT CLAIM FORM\n\n\n";
+cout<<"   Patient information\n";
+cout<<"    *to be filled by the patient*\n";
+for(int i=0;i<numofpatient;++i){
+cout<<"Patient first name: ";
+cin>>patient_info[i].patient_fname;
+cout<<endl;
+cout<<"Patient last name: ";
+cin>>patient_info[i].patient_lname;
+cout<<endl;
+cout<<"Age: ";
+cin>>patient_info[i].patient_age;
+cout<<endl;
+cout<<"Enter address: "<<endl;
+cout<<"Country: ";
+cin>>patient_info[i].patient_address.country;
+cout<<endl;
+cout<<"Region: ";
+cin>>patient_info[i].patient_address.region;
+cout<<endl;
+cout<<"City: ";
+cin>>patient_info[i].patient_address.city;
+cout<<endl;
+cout<<"Town: ";
+cin>>patient_info[i].patient_address.town;
+cout<<endl;
+cout<<"Sub-city: ";
+cin>>patient_info[i].patient_address.sub_city;
+cout<<endl;
+cout<<"Kebele: ";
+cin>>patient_info[i].patient_address.kebele;
+cout<<endl;
+cout<<"House number: ";
+cin>>patient_info[i].patient_address.house_number;
+cout<<endl;
+cout<<"Enter phone number-cell phone/work "<<endl;
+cout<<"Area code: ";
+cin>>patient_info[i].patient_phone_number.area_code;
+cout<<endl;
+cout<<"Exchange number: ";
+cin>>patient_info[i].patient_phone_number.exchange_number;
+cout<<endl;
+cout<<"U_number: ";
+cin>>patient_info[i].patient_phone_number.u_number;
+cout<<endl;
+cout<<"Email(optional): ";
+cin>>patient_info[i].patient_email;
+cout<<endl;
+cout<<"Sex: ";
+cin>>patient_info[i].patient_sex;
+cout<<endl;
+cout<<"I certify that the above information is correct.I understand that it is an offence to knowingly make any false statements for the purpose of any benefit.\n\n";
+cout<<"Patient first name: ";
+cin>>patient_info[i].patient_fname;
+cout<<endl;
+cout<<"Patient last name: ";
+cin>>patient_info[i].patient_lname;
+cout<<endl;
+cout<<"Date: ";
+cin>>patient_info[i].t_info.outdate;
+cout<<endl;
+
+
+}
+}
+
+void hospital_info(){ 
+int numofpatient;
+patient patient_info[numofpatient];
+cout<<"please enter the neccessary information below\n\n";
+for(int i=0;i<numofpatient;++i){
+cout<<"Hospital name: ";
+cin>>patient_info[i].detail.hospital_name[20];
+cout<<endl;
+cout<<"Hospital address: ";
+cin>>patient_info[i].detail.hospital_address;
+cout<<endl;
+cout<<"Hospital id: ";
+cin>>patient_info[i].detail.hospital_id;
+cout<<endl;
+cout<<"Hospital speciazation: ";
+cin>>patient_info[i].detail.specialization;
+cout<<endl;
+cout<<"Hospital standard: ";
+cin>>patient_info[i].detail.standard;
+cout<<endl;
+cout<<"Patient code: ";
+cin>>patient_info[i].detail.patient_code;
+cout<<endl;
+
+}
+}
+
+void treatment_authen(){  
+int numofpatient;
+patient patient_info[numofpatient];
+cout<<"           OUT PATIENT CLAIM FORM\n\n\n";
+cout<<"   TREATMENT AUTHENTICATION \n";
+cout<<"    *to be filled by hospital representative*\n";
+for(int i=0;i<numofpatient;++i){
+cout<<"Patient's date of attendance(DOA): ";
+cin>>patient_info[i].t_info.dateofattendance;
+cout<<endl;
+cout<<"Check in time: ";
+cout<<patient_info[i].t_info.checkintime;
+cout<<endl;
+cout<<"Check out time: ";
+cin>>patient_info[i].t_info.checkouttime;
+cout<<endl;
+cout<<"Primary diagnosis: ";
+cin>>patient_info[i].t_info.primary_diagnosis;
+cout<<endl;
+cout<<"Secondary diagnosis: ";
+cin>>patient_info[i].t_info.secondary_diagnosis;
+cout<<endl;
+cout<<"Date of service: ";
+cin>>patient_info[i].t_info.dateofservice;
+cout<<endl;
+cout<<"I declare that to the best of my knowledge the foregoing statements are true in every respect.\n\n";
+cout<<endl;
+cout<<"Date: ";
+cin>>patient_info[i].t_info.outdate;
+cout<<endl;
+
+}
+}
+
+void treatment_nature(){ 
+int numofpatient;
+patient patient_info[numofpatient];
+cout<<"           OUT PATIENT CLAIM FORM\n\n\n";
+cout<<"   NATURE OF TREATMENT\n";
+cout<<"    *to be filled by specialist/consult at the health facility*\n";
+for(int i=0;i<numofpatient;++i){
+cout<<"Reason for visit: ";
+cin>>patient_info[i].t_info.reasonofvisit;
+cout<<endl;
+cout<<"Treatment condition: ";
+cin>>patient_info[i].t_info.treatment_condition;
+cout<<endl;
+cout<<"Treatment outcomes: ";
+cin>>patient_info[i].t_info.treatment_outcome;
+cout<<endl;
+}
+}
+
 bool is_working_at_hours(Doctor_model *Doctor, int hour)
 {
 
