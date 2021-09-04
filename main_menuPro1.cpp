@@ -114,10 +114,10 @@ void hospital_info();   //hospital information filled by hospital representative
 void outpatient_reg();   //out patient registration form filled by the patient
 void treatment_authen(); // out patient treatment authentication to be filled by hospital representative
 void treatment_nature(); //treatment information of out patient filled by specialist/ consultant at the health facility
-bool is_working_at_hours(Doctor_model *Doctor, int hour);
-bool is_working_at_day(Doctor_model *Doctor, string day);
-bool is_room_available(hospital_model *hospital, int room_number);
-bool is_docter_at_max_capacity(Doctor_model *Doctor, int Current_patient);
+bool is_working_at_hours(Doctor_model *Doctor, int hour);//filled by the patient to check for the hour the doctor will be working 
+bool is_working_at_day(Doctor_model *Doctor, string day);//filled by the patient to check for the day the doctor will be working
+bool is_room_available(hospital_model *hospital, int room_number);//filled by the patient to check which room is free
+bool is_docter_at_max_capacity(Doctor_model *Doctor, int Current_patient);//filled by the patient to check the maxiumum patient the doctor will treat for that day.
 hospital_model init_hospital();
 Doctor_model init_Doctor();
 void disease_severity();
