@@ -84,6 +84,7 @@ bool is_room_available(hospital_model *hospital, int room_number);
 bool is_docter_at_max_capacity(Doctor_model *Doctor, int Current_patient);
 hospital_model init_hospital();
 Doctor_model init_Doctor();
+void disease_severity();
 struct MenuInterface
 {
     void mainMenu()
@@ -177,6 +178,7 @@ struct MenuInterface
        if((strcmp(password,default_password)==0))
         {
             cout<<"!!!!!!!!!!!!!!!!!!! Login Successfully !!!!!!!!!!!!!!!!!!!! "<<endl;
+            disease_severity();
         }
         else
         {
@@ -502,5 +504,39 @@ Doctor_model init_Doctor()
     Doctor.Work_hours[0][1] = 17;
     Doctor.Working_days[0] = "Monday";
     return Doctor;
+}
+void disease_severity()
+{
+    int estimation;
+    char sever[100],desc[1000];
+    Doctor_model name;
+    char password[50];
+    char defualt_passsword[]="doctor123";
+    line515: cout<<"Please verify that you are a doctor: "<<endl;
+    cout<<"Please enter your name: "<<endl;
+    cin>>name.doctor_name;
+    cout<<"Please enter your id: "<<endl;
+    cin>>name.doctor_id;
+    cin.ignore();
+    cout<<"Please enter you password: "<<endl;
+    cin.get(password,50);
+    cin.ignore();
+    if((strcmp(password,defualt_passsword))==0)
+    {
+        cout<<"Now you can fill the following questions: "<<endl;
+        cout<<"How sever is the disease in 100 words: "<<endl;
+        cin.get(sever,100);
+        cout<<"How long will the patient survive: "<<endl;
+        cin>>estimation;
+        cin.ignore();
+        cout<<"Description about the disease in less than 1000 words: "<<endl;
+        cin.get(desc,1000);
+    }
+    else
+    {
+        cout<<"Your names, id or password is incorrect, Please Try Again: "<<endl;
+        goto line515;
+    }
+
 }
 
