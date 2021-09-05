@@ -1,7 +1,7 @@
 #include<iostream>
 #include <string.h>
 using namespace std;
-const int Max_working_set = 3;//working day of the doctor set to 3 days a week
+const int Max_working_set = 3;
 
 //structure for any phone number related issues
 struct phone
@@ -10,7 +10,7 @@ struct phone
 };
 
 //structure for the address that are needed in the patients, doctors or any related informations
-struct address  
+struct address
 {
   int house_number;
   char country[20],region[20],town[20],city[20],sub_city[20],kebele[20];
@@ -23,7 +23,7 @@ struct date
 };
 
 //patient's relative information
-struct relative 
+struct relative
 {
     char relative_fname[50],relative_lname[50], relative_address[50];
     string relation;
@@ -114,10 +114,10 @@ void hospital_info();   //hospital information filled by hospital representative
 void outpatient_reg();   //out patient registration form filled by the patient
 void treatment_authen(); // out patient treatment authentication to be filled by hospital representative
 void treatment_nature(); //treatment information of out patient filled by specialist/ consultant at the health facility
-bool is_working_at_hours(Doctor_model *Doctor, int hour);//filled by the patient to check for the hour the doctor will be working 
-bool is_working_at_day(Doctor_model *Doctor, string day);//filled by the patient to check for the day the doctor will be working
-bool is_room_available(hospital_model *hospital, int room_number);//filled by the patient to check which room is free
-bool is_docter_at_max_capacity(Doctor_model *Doctor, int Current_patient);//filled by the patient to check the maxiumum patient the doctor will treat for that day.
+bool is_working_at_hours(Doctor_model *Doctor, int hour);
+bool is_working_at_day(Doctor_model *Doctor, string day);
+bool is_room_available(hospital_model *hospital, int room_number);
+bool is_docter_at_max_capacity(Doctor_model *Doctor, int Current_patient);
 hospital_model init_hospital();
 Doctor_model init_Doctor();
 void disease_severity();
@@ -692,75 +692,6 @@ Doctor_model init_Doctor()
     Doctor.Working_days[0] = "Monday";
     return Doctor;
 }
-
-
-{
-
-    cout << "welcome to our hospital" << endl;
-
-    hospital_model h1 = init_hospital();
-    Doctor_model Doctors[10];
-    Doctors[0] = init_Doctor();
-
-    int hour = 10;
-    int room = 10;
-    string day = "";
-
-    cout << "enter hour your good with: " << endl;
-    cin >> hour;
-
-    cout << "enter room your good with: " << endl;
-    cin >> room;
-
-    cout << "enter day your good with: " << endl;
-    cin >> day;
-
-    cout << "is_working_at_hours: " << hour << " ";
-    if (is_working_at_hours(&Doctors[0], hour))
-    {
-        cout << "ok!" << endl;
-    }
-    else
-    {
-        cout << "NOT OK!" << endl;
-    }
-
-    cout << "is_working_at_day: " << day << " ";
-    if (is_working_at_day(&Doctors[0], day))
-    {
-        cout << "AVAILABLE!" << endl;
-    }
-    else
-    {
-        cout << "NOT Availble!" << endl;
-    }
-
-    cout << "is_room_available: " << hour << " ";
-    if (is_room_available(&h1, room))
-    {
-        cout << "Available!" << endl;
-    }
-    else
-    {
-        cout << "NOT Available!" << endl;
-    }
-
-    int Current_patient = 10;
-
-    cout << "is_docter_at_max_capacity: " << Current_patient << " ";
-    if (is_docter_at_max_capacity(&Doctors[0], Current_patient))
-    {
-        cout << "Avalable!" << endl;
-    }
-    else
-    {
-        cout << "NOT Available!" << endl;
-    }
-
-    return 0;
-}
-
-
 void disease_severity()
 {
     int estimation;
