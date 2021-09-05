@@ -122,6 +122,7 @@ hospital_model init_hospital();
 Doctor_model init_Doctor();
 void disease_severity();
 void cases();
+void cost(float x,float y,float z,float w);
 struct MenuInterface
 {
     void mainMenu()
@@ -409,24 +410,34 @@ struct MenuInterface
       {
         SA_subMenu();
       }
+      else
+        terminate();
 
     }
 
     void managePricing()
     {
+        float w,x,y,z;
         int input;
         cout<<"\n\n\t\t-----------Manage Pricing-----------\n";
         cout<<"\n\t\tEnter\n";
-        cout<<"\n\t\t1. To Update cost per day: ";
-        cout<<"\n\t\tTo Return Press 0\n";
+        cout<<"\n\t\t1. To Calculate total cost: ";
+        cout<<"\n\t\t2. To Return Press 0";
+        cout<<"\n\t\tPress any other key to exit\n";
 
         cout<<"\n\n\t\tInput: ";
         cin>>input;
 
-        if(input==0)
+        if(input==1)
+        {
+            cost(x,y,z,w);
+        }
+        else if(input==0)
         {
             SA_subMenu();
         }
+        else
+            terminate();
     }
 
     void reset()
@@ -986,6 +997,23 @@ void cases()    //function for the medical assessment and updating patient's his
           cout<<"Please Try Again: "<<endl;
             goto line114;
         }
+}
+void cost(float x,float y,float z,float w) //function for calculating the total cost of the patient
+{
+    float t_cost;
+    int n_days;
+    cout<<"Please enter the number of days the patient stayed in the hospital: "<<endl;
+    cin>>n_days;
+    cout<<"Please enter the price of MRI "<<endl;
+    cin>>x;
+    cout<<"Please enter the price of X-RAY "<<endl;
+    cin>>z;
+    cout<<"Please enter the price of room per day "<<endl;
+    cin>>y;
+    cout<<"Please enter Card, Hospital Service Charge and Other extra costs "<<endl;
+    cin>>w;
+    t_cost=x+n_days*y+z+w;
+    cout<<"The total cost is: "<<t_cost<<" BIRR ONLY "<<endl;;
 }
 
 
