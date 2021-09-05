@@ -272,10 +272,12 @@ struct MenuInterface
         {
             manageDatabase();
         }
+      
         else if(input==2)
         {
             managePricing();
         }
+      
         else if(input==3)
         {
             reset();
@@ -324,10 +326,12 @@ struct MenuInterface
             cout<<"Are the doctors at their maximum capacity: "<<endl;
             is_docter_at_max_capacity(&doctor_name, current_patient);
         }
+      
       else if(input==0)
       {
         SA_subMenu();
       }
+      
     }
 
     void managePricing()
@@ -368,6 +372,7 @@ struct MenuInterface
     }
 
 };
+
 int main()
 {
 
@@ -375,265 +380,277 @@ int main()
     interface.mainMenu();
     return 0;
 }
+
 void inpatient_reg()
 {
-int numofpatient;
-cout<<"\n\t\tPlease enter the number of patient you want to register: ";
-cin>>numofpatient;
-patient patient_info[numofpatient];
-cout<<"\n\t\t-----------Hospital Patient Registration Form-----------\n"<<endl;
-cout<<"\t\t------------------New Patient Registration---------------\n";
+        int numofpatient;
+        cout<<"\n\t\tPlease enter the number of patient you want to register: ";
+        cin>>numofpatient;
+        patient patient_info[numofpatient];
+        cout<<"\n\t\t-----------Hospital Patient Registration Form-----------\n"<<endl;
+        cout<<"\t\t------------------New Patient Registration---------------\n";
 
-for(int i=0;i<numofpatient;++i){
-cout<<"\t\tPatient first name: ";
-cin>>patient_info[i].patient_fname;
-cout<<endl;
-cout<<"\t\tPatient last name: ";
-cin>>patient_info[i].patient_lname;
-cout<<endl;
-cout<<"\t\tAge: ";
-cin>>patient_info[i].patient_age;
-cout<<endl;
-cout<<"\t\tWeight: ";
-cin>>patient_info[i].patient_weight;
-cout<<endl;
-cout<<"\t\tEnter address: "<<endl;
-cout<<"\t\tCountry: ";
-cin>>patient_info[i].patient_address.country;
-cout<<endl;
-cout<<"\t\tRegion: ";
-cin>>patient_info[i].patient_address.region;
-cout<<endl;
-cout<<"\t\tCity: ";
-cin>>patient_info[i].patient_address.city;
-cout<<endl;
-cout<<"\t\tTown: ";
-cin>>patient_info[i].patient_address.town;
-cout<<endl;
-cout<<"\t\tSub-city: ";
-cin>>patient_info[i].patient_address.sub_city;
-cout<<endl;
-cout<<"\t\tKebele: ";
-cin>>patient_info[i].patient_address.kebele;
-cout<<endl;
-cout<<"\t\tHouse number: ";
-cin>>patient_info[i].patient_address.house_number;
-cout<<endl;
-cout<<"\t\tEnter phone number-cell phone/work "<<endl;
-cout<<"\t\tArea code: ";
-cin>>patient_info[i].patient_phone_number.area_code;
-cout<<endl;
-cout<<"\t\tExchange number: ";
-cin>>patient_info[i].patient_phone_number.exchange_number;
-cout<<endl;
-cout<<"\t\tU_number: ";
-cin>>patient_info[i].patient_phone_number.u_number;
-cout<<endl;
-cout<<"\t\tEmail(optional): ";
-cin>>patient_info[i].patient_email;
-cout<<endl;
-cout<<"\t\tSex: ";
-cin>>patient_info[i].patient_sex;
-cout<<endl;
-cout<<"\t\tRegistration date and time"<<endl;
-cout<<"\t\tMonth: ";
-cin>>patient_info[i].date_time.mm1;
-cout<<endl;
-cout<<"\t\tDate: ";
-cin>>patient_info[i].date_time.dd1;
-cout<<endl;
-cout<<"\t\tYear: ";
-cin>>patient_info[i].date_time.yy1;
-cout<<endl;
-cout<<"\t\tHour: ";
-cin>>patient_info[i].date_time.hr;
-cout<<endl;
-cout<<"\t\tMinute: ";
-cin>>patient_info[i].date_time.Min;
-cout<<endl;
-cout<<"\t\tDate of Birth"<<endl;
-cout<<"\t\tMonth: ";
-cin>>patient_info[i].patient_birthday.month;
-cout<<endl;
-cout<<"\t\tDate: ";
-cin>>patient_info[i].patient_birthday.day;
-cout<<endl;
-cout<<"\t\tYear: ";
-cin>>patient_info[i].patient_birthday.year;
-cout<<endl;
-cout<<"\t\tMarital Status: ";
-cin>>patient_info[i].martial_status;
-cout<<"\n\n";
-cout<<"\t\tIn case of emergency\n\n";
-cout<<"\t\tEmergency/relative Contact: "<<endl;
-cout<<"\t\tRelative's first name: ";
-cin>>patient_info[i].r_info.relative_fname;
-cout<<endl;
-cout<<"\t\tRelative's last name: ";
-cin>>patient_info[i].r_info.relative_lname;
-cout<<endl;
-cout<<"\t\tRelative's address: ";
-cin>>patient_info[i].r_info.relative_address;
-cout<<endl;
-cout<<"\t\tRelation ship: ";
-cin>>patient_info[i].r_info.relation;
-cout<<endl;
-cout<<"\t\tContact number: ";
-cin>>patient_info[i].r_info.relative_contact;
-cout<<endl;
-cout<<"\t\tTaking any medication, currently?"<<endl;
-cin>>patient_info[i].patient_history;
-cout<<endl;
-}
+        for(int i=0;i<numofpatient;++i)
+        {
+            cout<<"\t\tPatient first name: ";
+            cin>>patient_info[i].patient_fname;
+            cout<<endl;
+            cout<<"\t\tPatient last name: ";
+            cin>>patient_info[i].patient_lname;
+            cout<<endl;
+            cout<<"\t\tAge: ";
+            cin>>patient_info[i].patient_age;
+            cout<<endl;
+            cout<<"\t\tWeight: ";
+            cin>>patient_info[i].patient_weight;
+            cout<<endl;
+            cout<<"\t\tEnter address: "<<endl;
+            cout<<"\t\tCountry: ";
+            cin>>patient_info[i].patient_address.country;
+            cout<<endl;
+            cout<<"\t\tRegion: ";
+            cin>>patient_info[i].patient_address.region;
+            cout<<endl;
+            cout<<"\t\tCity: ";
+            cin>>patient_info[i].patient_address.city;
+            cout<<endl;
+            cout<<"\t\tTown: ";
+            cin>>patient_info[i].patient_address.town;
+            cout<<endl;
+            cout<<"\t\tSub-city: ";
+            cin>>patient_info[i].patient_address.sub_city;
+            cout<<endl;
+            cout<<"\t\tKebele: ";
+            cin>>patient_info[i].patient_address.kebele;
+            cout<<endl;
+            cout<<"\t\tHouse number: ";
+            cin>>patient_info[i].patient_address.house_number;
+            cout<<endl;
+            cout<<"\t\tEnter phone number-cell phone/work "<<endl;
+            cout<<"\t\tArea code: ";
+            cin>>patient_info[i].patient_phone_number.area_code;
+            cout<<endl;
+            cout<<"\t\tExchange number: ";
+            cin>>patient_info[i].patient_phone_number.exchange_number;
+            cout<<endl;
+            cout<<"\t\tU_number: ";
+            cin>>patient_info[i].patient_phone_number.u_number;
+            cout<<endl;
+            cout<<"\t\tEmail(optional): ";
+            cin>>patient_info[i].patient_email;
+            cout<<endl;
+            cout<<"\t\tSex: ";
+            cin>>patient_info[i].patient_sex;
+            cout<<endl;
+            cout<<"\t\tRegistration date and time"<<endl;
+            cout<<"\t\tMonth: ";
+            cin>>patient_info[i].date_time.mm1;
+            cout<<endl;
+            cout<<"\t\tDate: ";
+            cin>>patient_info[i].date_time.dd1;
+            cout<<endl;
+            cout<<"\t\tYear: ";
+            cin>>patient_info[i].date_time.yy1;
+            cout<<endl;
+            cout<<"\t\tHour: ";
+            cin>>patient_info[i].date_time.hr;
+            cout<<endl;
+            cout<<"\t\tMinute: ";
+            cin>>patient_info[i].date_time.Min;
+            cout<<endl;
+            cout<<"\t\tDate of Birth"<<endl;
+            cout<<"\t\tMonth: ";
+            cin>>patient_info[i].patient_birthday.month;
+            cout<<endl;
+            cout<<"\t\tDate: ";
+            cin>>patient_info[i].patient_birthday.day;
+            cout<<endl;
+            cout<<"\t\tYear: ";
+            cin>>patient_info[i].patient_birthday.year;
+            cout<<endl;
+            cout<<"\t\tMarital Status: ";
+            cin>>patient_info[i].martial_status;
+            cout<<"\n\n";
+            cout<<"\t\tIn case of emergency\n\n";
+            cout<<"\t\tEmergency/relative Contact: "<<endl;
+            cout<<"\t\tRelative's first name: ";
+            cin>>patient_info[i].r_info.relative_fname;
+            cout<<endl;
+            cout<<"\t\tRelative's last name: ";
+            cin>>patient_info[i].r_info.relative_lname;
+            cout<<endl;
+            cout<<"\t\tRelative's address: ";
+            cin>>patient_info[i].r_info.relative_address;
+            cout<<endl;
+            cout<<"\t\tRelation ship: ";
+            cin>>patient_info[i].r_info.relation;
+            cout<<endl;
+            cout<<"\t\tContact number: ";
+            cin>>patient_info[i].r_info.relative_contact;
+            cout<<endl;
+            cout<<"\t\tTaking any medication, currently?"<<endl;
+            cin>>patient_info[i].patient_history;
+            cout<<endl;
+      }
   }
-void outpatient_reg(){
-int numofpatient;
-patient patient_info[numofpatient];
-cout<<"           OUT PATIENT CLAIM FORM\n\n\n";
-cout<<"   Patient information\n";
-cout<<"    *to be filled by the patient*\n";
-for(int i=0;i<numofpatient;++i){
-cout<<"Patient first name: ";
-cin>>patient_info[i].patient_fname;
-cout<<endl;
-cout<<"Patient last name: ";
-cin>>patient_info[i].patient_lname;
-cout<<endl;
-cout<<"Age: ";
-cin>>patient_info[i].patient_age;
-cout<<endl;
-cout<<"Enter address: "<<endl;
-cout<<"Country: ";
-cin>>patient_info[i].patient_address.country;
-cout<<endl;
-cout<<"Region: ";
-cin>>patient_info[i].patient_address.region;
-cout<<endl;
-cout<<"City: ";
-cin>>patient_info[i].patient_address.city;
-cout<<endl;
-cout<<"Town: ";
-cin>>patient_info[i].patient_address.town;
-cout<<endl;
-cout<<"Sub-city: ";
-cin>>patient_info[i].patient_address.sub_city;
-cout<<endl;
-cout<<"Kebele: ";
-cin>>patient_info[i].patient_address.kebele;
-cout<<endl;
-cout<<"House number: ";
-cin>>patient_info[i].patient_address.house_number;
-cout<<endl;
-cout<<"Enter phone number-cell phone/work "<<endl;
-cout<<"Area code: ";
-cin>>patient_info[i].patient_phone_number.area_code;
-cout<<endl;
-cout<<"Exchange number: ";
-cin>>patient_info[i].patient_phone_number.exchange_number;
-cout<<endl;
-cout<<"U_number: ";
-cin>>patient_info[i].patient_phone_number.u_number;
-cout<<endl;
-cout<<"Email(optional): ";
-cin>>patient_info[i].patient_email;
-cout<<endl;
-cout<<"Sex: ";
-cin>>patient_info[i].patient_sex;
-cout<<endl;
-cout<<"I certify that the above information is correct.I understand that it is an offence to knowingly make any false statements for the purpose of any benefit.\n\n";
-cout<<"Patient first name: ";
-cin>>patient_info[i].patient_fname;
-cout<<endl;
-cout<<"Patient last name: ";
-cin>>patient_info[i].patient_lname;
-cout<<endl;
-cout<<"Date: ";
-cin>>patient_info[i].t_info.outdate;
-cout<<endl;
 
-
-}
-}
-
-void hospital_info(){
-
-int numofpatient;
-patient patient_info[numofpatient];
-cout<<"please enter the neccessary information below\n\n";
-for(int i=0;i<numofpatient;++i){
-cout<<"Hospital name: ";
-cin>>patient_info[i].detail.hospital_name[20];
-cout<<endl;
-cout<<"Hospital address: ";
-cin>>patient_info[i].detail.hospital_address;
-cout<<endl;
-cout<<"Hospital id: ";
-cin>>patient_info[i].detail.hospital_id;
-cout<<endl;
-cout<<"Hospital speciazation: ";
-cin>>patient_info[i].detail.specialization;
-cout<<endl;
-cout<<"Hospital standard: ";
-cin>>patient_info[i].detail.standard;
-cout<<endl;
-cout<<"Patient code: ";
-cin>>patient_info[i].detail.patient_code;
-cout<<endl;
-
-}
+void outpatient_reg()
+{
+    int numofpatient;
+    patient patient_info[numofpatient];
+    cout<<"           OUT PATIENT CLAIM FORM\n\n\n";
+    cout<<"   Patient information\n";
+    cout<<"    *to be filled by the patient*\n";
+    for(int i=0;i<numofpatient;++i){
+    cout<<"Patient first name: ";
+    cin>>patient_info[i].patient_fname;
+    cout<<endl;
+    cout<<"Patient last name: ";
+    cin>>patient_info[i].patient_lname;
+    cout<<endl;
+    cout<<"Age: ";
+    cin>>patient_info[i].patient_age;
+    cout<<endl;
+    cout<<"Enter address: "<<endl;
+    cout<<"Country: ";
+    cin>>patient_info[i].patient_address.country;
+    cout<<endl;
+    cout<<"Region: ";
+    cin>>patient_info[i].patient_address.region;
+    cout<<endl;
+    cout<<"City: ";
+    cin>>patient_info[i].patient_address.city;
+    cout<<endl;
+    cout<<"Town: ";
+    cin>>patient_info[i].patient_address.town;
+    cout<<endl;
+    cout<<"Sub-city: ";
+    cin>>patient_info[i].patient_address.sub_city;
+    cout<<endl;
+    cout<<"Kebele: ";
+    cin>>patient_info[i].patient_address.kebele;
+    cout<<endl;
+    cout<<"House number: ";
+    cin>>patient_info[i].patient_address.house_number;
+    cout<<endl;
+    cout<<"Enter phone number-cell phone/work "<<endl;
+    cout<<"Area code: ";
+    cin>>patient_info[i].patient_phone_number.area_code;
+    cout<<endl;
+    cout<<"Exchange number: ";
+    cin>>patient_info[i].patient_phone_number.exchange_number;
+    cout<<endl;
+    cout<<"U_number: ";
+    cin>>patient_info[i].patient_phone_number.u_number;
+    cout<<endl;
+    cout<<"Email(optional): ";
+    cin>>patient_info[i].patient_email;
+    cout<<endl;
+    cout<<"Sex: ";
+    cin>>patient_info[i].patient_sex;
+    cout<<endl;
+    cout<<"I certify that the above information is correct.I understand that it is an offence to knowingly make any false statements for the purpose of any benefit.\n\n";
+    cout<<"Patient first name: ";
+    cin>>patient_info[i].patient_fname;
+    cout<<endl;
+    cout<<"Patient last name: ";
+    cin>>patient_info[i].patient_lname;
+    cout<<endl;
+    cout<<"Date: ";
+    cin>>patient_info[i].t_info.outdate;
+    cout<<endl;
+  }
 }
 
-void treatment_authen(){
-int numofpatient;
-patient patient_info[numofpatient];
-cout<<"           OUT PATIENT CLAIM FORM\n\n\n";
-cout<<"   TREATMENT AUTHENTICATION \n";
-cout<<"    *to be filled by hospital representative*\n";
-for(int i=0;i<numofpatient;++i){
-cout<<"Patient's date of attendance(DOA): ";
-cin>>patient_info[i].t_info.dateofattendance;
-cout<<endl;
-cout<<"Check in time: ";
-cout<<patient_info[i].t_info.checkintime;
-cout<<endl;
-cout<<"Check out time: ";
-cin>>patient_info[i].t_info.checkouttime;
-cout<<endl;
-cout<<"Primary diagnosis: ";
-cin>>patient_info[i].t_info.primary_diagnosis;
-cout<<endl;
-cout<<"Secondary diagnosis: ";
-cin>>patient_info[i].t_info.secondary_diagnosis;
-cout<<endl;
-cout<<"Date of service: ";
-cin>>patient_info[i].t_info.dateofservice;
-cout<<endl;
-cout<<"I declare that to the best of my knowledge the foregoing statements are true in every respect.\n\n";
-cout<<endl;
-cout<<"Date: ";
-cin>>patient_info[i].t_info.outdate;
-cout<<endl;
+void hospital_info()
+{
+    int numofpatient;
+    patient patient_info[numofpatient];
+    cout<<"please enter the neccessary information below\n\n";
+  
+    for(int i=0;i<numofpatient;++i)
+    {
+      cout<<"Hospital name: ";
+      cin>>patient_info[i].detail.hospital_name[20];
+      cout<<endl;
+      cout<<"Hospital address: ";
+      cin>>patient_info[i].detail.hospital_address;
+      cout<<endl;
+      cout<<"Hospital id: ";
+      cin>>patient_info[i].detail.hospital_id;
+      cout<<endl;
+      cout<<"Hospital speciazation: ";
+      cin>>patient_info[i].detail.specialization;
+      cout<<endl;
+      cout<<"Hospital standard: ";
+      cin>>patient_info[i].detail.standard;
+      cout<<endl;
+      cout<<"Patient code: ";
+      cin>>patient_info[i].detail.patient_code;
+      cout<<endl;
 
-}
+    }
 }
 
-void treatment_nature(){
-int numofpatient;
-patient patient_info[numofpatient];
-cout<<"           OUT PATIENT CLAIM FORM\n\n\n";
-cout<<"   NATURE OF TREATMENT\n";
-cout<<"    *to be filled by specialist/consult at the health facility*\n";
-for(int i=0;i<numofpatient;++i){
-cout<<"Reason for visit: ";
-cin>>patient_info[i].t_info.reasonofvisit;
-cout<<endl;
-cout<<"Treatment condition: ";
-cin>>patient_info[i].t_info.treatment_condition;
-cout<<endl;
-cout<<"Treatment outcomes: ";
-cin>>patient_info[i].t_info.treatment_outcome;
-cout<<endl;
+void treatment_authen()
+{
+  int numofpatient;
+  patient patient_info[numofpatient];
+  
+  cout<<"           OUT PATIENT CLAIM FORM\n\n\n";
+  cout<<"   TREATMENT AUTHENTICATION \n";
+  cout<<"    *to be filled by hospital representative*\n";
+  
+  for(int i=0;i<numofpatient;++i)
+  {
+      cout<<"Patient's date of attendance(DOA): ";
+      cin>>patient_info[i].t_info.dateofattendance;
+      cout<<endl;
+      cout<<"Check in time: ";
+      cout<<patient_info[i].t_info.checkintime;
+      cout<<endl;
+      cout<<"Check out time: ";
+      cin>>patient_info[i].t_info.checkouttime;
+      cout<<endl;
+      cout<<"Primary diagnosis: ";
+      cin>>patient_info[i].t_info.primary_diagnosis;
+      cout<<endl;
+      cout<<"Secondary diagnosis: ";
+      cin>>patient_info[i].t_info.secondary_diagnosis;
+      cout<<endl;
+      cout<<"Date of service: ";
+      cin>>patient_info[i].t_info.dateofservice;
+      cout<<endl;
+      cout<<"I declare that to the best of my knowledge the foregoing statements are true in every respect.\n\n";
+      cout<<endl;
+      cout<<"Date: ";
+      cin>>patient_info[i].t_info.outdate;
+      cout<<endl;
+
+  }
 }
+
+void treatment_nature()
+{
+  
+  int numofpatient;
+  patient patient_info[numofpatient];
+  cout<<"           OUT PATIENT CLAIM FORM\n\n\n";
+  cout<<"   NATURE OF TREATMENT\n";
+  cout<<"    *to be filled by specialist/consult at the health facility*\n";
+  
+  for(int i=0;i<numofpatient;++i)
+  {
+      cout<<"Reason for visit: ";
+      cin>>patient_info[i].t_info.reasonofvisit;
+      cout<<endl;
+      cout<<"Treatment condition: ";
+      cin>>patient_info[i].t_info.treatment_condition;
+      cout<<endl;
+      cout<<"Treatment outcomes: ";
+      cin>>patient_info[i].t_info.treatment_outcome;
+      cout<<endl;
+  }
 }
 
 bool is_working_at_hours(Doctor_model *Doctor, int hour)
@@ -648,6 +665,7 @@ bool is_working_at_hours(Doctor_model *Doctor, int hour)
     }
     return false;
 }
+
 bool is_working_at_day(Doctor_model *Doctor, string day)
 {
     for (int i = 0; i != 7; i++)
@@ -659,6 +677,7 @@ bool is_working_at_day(Doctor_model *Doctor, string day)
     }
     return false;
 }
+
 bool is_room_available(hospital_model *hospital, int room_number)
 {
     if (hospital->rooms[room_number] == 0)
@@ -667,6 +686,7 @@ bool is_room_available(hospital_model *hospital, int room_number)
     }
     return false;
 }
+
 bool is_docter_at_max_capacity(Doctor_model *Doctor, int Current_patient)
 {
     if (Doctor->Max_patients >= Current_patient)
@@ -675,6 +695,7 @@ bool is_docter_at_max_capacity(Doctor_model *Doctor, int Current_patient)
     }
     return false;
 }
+
 hospital_model init_hospital()
 {
     hospital_model h1;
@@ -683,6 +704,7 @@ hospital_model init_hospital()
     h1.rooms[1] = -1;
     return h1;
 }
+
 Doctor_model init_Doctor()
 {
     Doctor_model Doctor;
@@ -692,6 +714,7 @@ Doctor_model init_Doctor()
     Doctor.Working_days[0] = "Monday";
     return Doctor;
 }
+
 void disease_severity()
 {
     int estimation;
@@ -708,6 +731,7 @@ void disease_severity()
     cout<<"Please enter you password: "<<endl;
     cin.get(password,50);
     cin.ignore();
+  
     if((strcmp(password,defualt_passsword))==0)
     {
         cout<<"Now you can fill the following questions: "<<endl;
@@ -719,6 +743,7 @@ void disease_severity()
         cout<<"Description about the disease in less than 1000 words: "<<endl;
         cin.get(desc,1000);
     }
+  
     else
     {
         cout<<"Your names, id or password is incorrect, Please Try Again: "<<endl;
@@ -726,3 +751,5 @@ void disease_severity()
     }
 
 }
+
+
