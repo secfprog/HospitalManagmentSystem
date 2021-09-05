@@ -117,7 +117,7 @@ void treatment_nature(); //treatment information of out patient filled by specia
 bool is_working_at_hours(Doctor_model *Doctor, int hour);
 bool is_working_at_day(Doctor_model *Doctor, string day);
 bool is_room_available(hospital_model *hospital, int room_number);
-bool is_docter_at_max_capacity(Doctor_model *Doctor, int Current_patient);
+bool is_doctor_at_max_capacity(Doctor_model *Doctor, int Current_patient);
 hospital_model init_hospital();
 Doctor_model init_Doctor();
 void disease_severity();
@@ -272,12 +272,12 @@ struct MenuInterface
         {
             manageDatabase();
         }
-      
+
         else if(input==2)
         {
             managePricing();
         }
-      
+
         else if(input==3)
         {
             reset();
@@ -324,14 +324,14 @@ struct MenuInterface
             cout<<"Is "<<doctor_name.doctor_name<<" available in this day: "<<endl;
             is_working_at_day(&doctor_name, day);
             cout<<"Are the doctors at their maximum capacity: "<<endl;
-            is_docter_at_max_capacity(&doctor_name, current_patient);
+            is_doctor_at_max_capacity(&doctor_name, current_patient);
         }
-      
+
       else if(input==0)
       {
         SA_subMenu();
       }
-      
+
     }
 
     void managePricing()
@@ -567,7 +567,7 @@ void hospital_info()
     int numofpatient;
     patient patient_info[numofpatient];
     cout<<"please enter the neccessary information below\n\n";
-  
+
     for(int i=0;i<numofpatient;++i)
     {
       cout<<"Hospital name: ";
@@ -596,11 +596,11 @@ void treatment_authen()
 {
   int numofpatient;
   patient patient_info[numofpatient];
-  
+
   cout<<"           OUT PATIENT CLAIM FORM\n\n\n";
   cout<<"   TREATMENT AUTHENTICATION \n";
   cout<<"    *to be filled by hospital representative*\n";
-  
+
   for(int i=0;i<numofpatient;++i)
   {
       cout<<"Patient's date of attendance(DOA): ";
@@ -632,13 +632,13 @@ void treatment_authen()
 
 void treatment_nature()
 {
-  
+
   int numofpatient;
   patient patient_info[numofpatient];
   cout<<"           OUT PATIENT CLAIM FORM\n\n\n";
   cout<<"   NATURE OF TREATMENT\n";
   cout<<"    *to be filled by specialist/consult at the health facility*\n";
-  
+
   for(int i=0;i<numofpatient;++i)
   {
       cout<<"Reason for visit: ";
@@ -687,7 +687,7 @@ bool is_room_available(hospital_model *hospital, int room_number)
     return false;
 }
 
-bool is_docter_at_max_capacity(Doctor_model *Doctor, int Current_patient)
+bool is_doctor_at_max_capacity(Doctor_model *Doctor, int Current_patient)
 {
     if (Doctor->Max_patients >= Current_patient)
     {
@@ -738,36 +738,36 @@ void appointmentDateChecker()
     cin >> day;
 
     cout << "\t\tIs_working_at_hours: " << hour << "\t";
-    
+
     if (is_working_at_hours(&Doctors[0], hour))
     {
         cout << "OK!" << endl;
     }
-    
+
     else
     {
         cout << "NOT OK!" << endl;
     }
 
     cout << "\t\tIs_working_at_day: " << day << "\t";
-    
+
     if (is_working_at_day(&Doctors[0], day))
     {
         cout << "OK!" << endl;
     }
-    
+
     else
     {
         cout << "NOT OK!" << endl;
     }
 
     cout << "\t\tIs_room_available: " << hour << "\t";
-    
+
     if (is_room_available(&h1, room))
     {
         cout << "OK!" << endl;
     }
-    
+
     else
     {
         cout << "NOT OK!" << endl;
@@ -776,12 +776,12 @@ void appointmentDateChecker()
     int Current_patient = 10;
 
     cout << "\t\tIs_doctor_at_max_capacity: " << Current_patient << "\t";
-    
+
     if (is_doctor_at_max_capacity(&Doctors[0], Current_patient))
     {
         cout << "OK!" << endl;
     }
-    
+
     else
     {
         cout << "NOT OK!" << endl;
@@ -805,7 +805,7 @@ void disease_severity()
     cout<<"Please enter you password: "<<endl;
     cin.get(password,50);
     cin.ignore();
-  
+
     if((strcmp(password,defualt_passsword))==0)
     {
         cout<<"Now you can fill the following questions: "<<endl;
@@ -817,7 +817,7 @@ void disease_severity()
         cout<<"Description about the disease in less than 1000 words: "<<endl;
         cin.get(desc,1000);
     }
-  
+
     else
     {
         cout<<"Your names, id or password is incorrect, Please Try Again: "<<endl;
@@ -825,5 +825,3 @@ void disease_severity()
     }
 
 }
-
-
