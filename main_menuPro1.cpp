@@ -715,6 +715,80 @@ Doctor_model init_Doctor()
     return Doctor;
 }
 
+void appointmentDateChecker()
+{
+
+    cout << "Hello World! >.<" << endl;
+
+    hospital_model h1 = init_hospital();
+    Doctor_model Doctors[10];
+    Doctors[0] = init_Doctor();
+
+    int hour = 10;
+    int room = 10;
+    string day = "";
+
+    cout << "\t\tEnter hour your good with: " << endl;
+    cin >> hour;
+
+    cout << "\t\tEnter room your good with: " << endl;
+    cin >> room;
+
+    cout << "\t\tEnter day your good with: " << endl;
+    cin >> day;
+
+    cout << "\t\tIs_working_at_hours: " << hour << "\t";
+    
+    if (is_working_at_hours(&Doctors[0], hour))
+    {
+        cout << "OK!" << endl;
+    }
+    
+    else
+    {
+        cout << "NOT OK!" << endl;
+    }
+
+    cout << "\t\tIs_working_at_day: " << day << "\t";
+    
+    if (is_working_at_day(&Doctors[0], day))
+    {
+        cout << "OK!" << endl;
+    }
+    
+    else
+    {
+        cout << "NOT OK!" << endl;
+    }
+
+    cout << "\t\tIs_room_available: " << hour << "\t";
+    
+    if (is_room_available(&h1, room))
+    {
+        cout << "OK!" << endl;
+    }
+    
+    else
+    {
+        cout << "NOT OK!" << endl;
+    }
+
+    int Current_patient = 10;
+
+    cout << "\t\tIs_doctor_at_max_capacity: " << Current_patient << "\t";
+    
+    if (is_doctor_at_max_capacity(&Doctors[0], Current_patient))
+    {
+        cout << "OK!" << endl;
+    }
+    
+    else
+    {
+        cout << "NOT OK!" << endl;
+    }
+
+}
+
 void disease_severity()
 {
     int estimation;
