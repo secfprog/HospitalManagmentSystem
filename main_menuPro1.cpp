@@ -121,7 +121,7 @@ bool is_doctor_at_max_capacity(Doctor_model *Doctor, int Current_patient);
 hospital_model init_hospital();
 Doctor_model init_Doctor();
 void disease_severity();
-
+void cases();
 struct MenuInterface
 {
     void mainMenu()
@@ -200,14 +200,14 @@ struct MenuInterface
 
     void LoginDetails(string role)
     {
-        string hospitalID;
+         string hospitalID;
         char password[50];
         char default_password[50]="doctor1234";
-        int input;
+        int input,choice,option;
 
         cout<<"\t\t-----------"<<role<<" Login Page-----------\n";
 
-        line172:cout<<"\n\t\t Hospital ID: ";
+        line_d:cout<<"\n\t\t Hospital ID: ";
         cin>>hospitalID;
 
         cout<<"\n\t\t Password: ";
@@ -215,12 +215,90 @@ struct MenuInterface
        if((strcmp(password,default_password)==0))
         {
             cout<<"!!!!!!!!!!!!!!!!!! Login Successfully !!!!!!!!!!!!!!!!!!! "<<endl;
-            disease_severity();
+            cout<<"*********** What do you want to do next ***************** "<<endl;
+            cout<<"press\n 1. To check on disease severity\n 2. For treatment authentication\n 3. For treatment nature\n 4. To check on cases\n 5. exit: "<<endl;
+            cin>>choice;
+            switch(choice)
+            {
+                line_a:case 1: disease_severity();
+                        cout<<"If you want to go to treatment authentication press 1: "<<endl;
+                        cout<<"If you want to go to treatment nature press 2: "<<endl;
+                        cout<<"If you want to go to cases press 3: "<<endl;
+                        cout<<"Press any other key to exit: "<<endl;
+                        cin>>option;
+                        switch(option)
+                        {
+                            case 1: treatment_authen();
+                                    break;
+                            case 2: treatment_nature();
+                                    break;
+                            case 3: cases();
+                                    break;
+                            default: break;
+                        }
+                        break;
+                line_b: case 2: treatment_authen();
+                        cout<<"If you want to go to disease severity press 1: "<<endl;
+                        cout<<"If you want to go to treatment nature press 2: "<<endl;
+                        cout<<"If you want to go to cases press 3: "<<endl;
+                        cout<<"Press any other key to exit: "<<endl;
+                        cin>>option;
+                         switch(option)
+                        {
+                            case 1: disease_severity();
+                                    break;
+                            case 2: treatment_nature();
+                                    break;
+                            case 3: cases();
+                                    break;
+                            default: break;
+                        }
+                        break;
+               line_c: case 3: treatment_nature();
+                        cout<<"If you want to go to disease severity press 1: "<<endl;
+                        cout<<"If you want to go to treatment authentication press 2: "<<endl;
+                        cout<<"If you want to go to cases press 3: "<<endl;
+                        cout<<"Press any other key to exit: "<<endl;
+                        cin>>option;
+                         switch(option)
+                        {
+                            case 1: disease_severity();
+                                    break;
+                            case 2: treatment_authen;
+                                    break;
+                            case 3: cases();
+                                    break;
+                            default: break;
+                        }
+                        break;
+                line_e: case 4: cases();
+                        cout<<"If you want to go to disease severity press 1: "<<endl;
+                        cout<<"If you want to go to treatment authentication press 2: "<<endl;
+                        cout<<"If you want to go to treatment nature press 3: "<<endl;
+                        cout<<"Press any other key to exit: "<<endl;
+                        cin>>option;
+                         switch(option)
+                        {
+                            case 1: disease_severity();
+                                    break;
+                            case 2: treatment_authen();
+                                    break;
+                            case 3: treatment_nature;
+                                    break;
+                            default: break;
+                        }
+                        break;
+                default: break;
+            }
+
+
+
+
         }
         else
         {
             cout<<"!!!!!!!!!!!!!!!!!  Please try again  !!!!!!!!!!!!!!!!!!!!! "<<endl;
-            goto line172;
+            goto line_d;
         }
     }
 
@@ -825,3 +903,90 @@ void disease_severity()
     }
 
 }
+void cases()    //function for the medical assessment and updating patient's history
+{
+    Doctor_model name;
+    int choice,option;
+    char password[50];
+    char default_password[50]="doctor123";
+    patient info;
+    line114:cout<<"Please verify that you are a doctor: "<<endl;
+    cout<<"Please enter your name: "<<endl;
+    cin>>name.doctor_name;
+    cout<<"Please enter your id: "<<endl;
+    cin>>name.doctor_id;
+    cin.ignore();
+    cout<<"Please enter you password: "<<endl;
+    cin.get(password,50);
+    if((strcmp(password,default_password))==0)
+    {
+        cout<<"Now you are verified to check and update the history of the patient: "<<endl;
+        cout<<"Enter\n 1. For checking patients history: \n 2. For updating: \n 3. Other to exit: "<<endl;
+        cin>>choice;
+        switch(choice)
+        {
+           case 1: cout<<"You have chosen to check on the history of the patient: "<<endl;
+                   cout<<"Please enter patient's id: "<<endl;
+                   cin>>info.patient_id;
+                   cout<<"Patient's information: "<<endl;
+                   cout<<"Patient's Name: "<<info.patient_fname<<endl;
+                   cout<<"Patient's Age: "<<info.patient_age<<endl;
+                   cout<<"Patient's Email: "<<info.patient_email<<endl;
+                   cout<<"Patient's Gender: "<<info.patient_sex<<endl;
+                   cout<<"Patient's Weight: "<<info.patient_weight<<endl;
+                   cout<<"Patient's Arrival Date: "<<info.date_time.dd1<<" \ "<<info.date_time.mm1<<" \ "<<info.date_time.yy1<<endl;
+                   cout<<"Patient's Birthday: "<<info.patient_birthday.day<<" \ "<<info.patient_birthday.month<<" \ "<<info.patient_birthday.year<<endl;
+                   cout<<"Patient's Phone Number: "<<info.patient_phone_number.area_code<<" \ "<<info.patient_phone_number.exchange_number<<" \ "<<info.patient_phone_number.u_number<<endl;
+                   cout<<"Patient's Country: "<<info.patient_address.country<<endl;
+                   cout<<"Patient's Region: "<<info.patient_address.region<<endl;
+                   cout<<"Patient's Town: "<<info.patient_address.town<<endl;
+                   cout<<"Patient's City: "<<info.patient_address.city<<endl;
+                   cout<<"Patient's Sub-City: "<<info.patient_address.sub_city<<endl;
+                   cout<<"Patient's Kebele: "<<info.patient_address.kebele<<endl;
+                   cout<<"Patient's House Number: "<<info.patient_address.house_number<<endl;
+                   cout<<"The history of the patient you are looking for is: "<<endl;
+                   cout<<"..........................";
+                   cout<<".................................";
+                   cout<<".....................................";
+                   cout<<"........................................";
+                   cout<<"Press \n 1. if you want to update patient's history: \n 2. Other to exit: "<<endl;
+                   cin>>option;
+                   if(option==1)
+                   {
+                       goto line142;
+                   }
+                       break;
+    line142:case 2: cout<<"You have chosen to update patient's history: "<<endl;
+                    cout<<"Please enter patient's id: "<<endl;
+                    cin>>info.patient_id;
+                    cout<<"Patient's information: "<<endl;
+                    cout<<"Patient's Name: "<<info.patient_fname<<endl;
+                    cout<<"Patient's Age: "<<info.patient_age<<endl;
+                    cout<<"Patient's Email: "<<info.patient_email<<endl;
+                    cout<<"Patient's Gender: "<<info.patient_sex<<endl;
+                    cout<<"Patient's Weight: "<<info.patient_weight<<endl;
+                    cout<<"Patient's Arrival Date: "<<info.date_time.dd1<<" \ "<<info.date_time.mm1<<" \ "<<info.date_time.yy1<<endl;
+                    cout<<"Patient's Birthday: "<<info.patient_birthday.day<<" \ "<<info.patient_birthday.month<<" \ "<<info.patient_birthday.year<<endl;
+                    cout<<"Patient's Phone Number: "<<info.patient_phone_number.area_code<<" \ "<<info.patient_phone_number.exchange_number<<" \ "<<info.patient_phone_number.u_number<<endl;
+                    cout<<"Patient's Country: "<<info.patient_address.country<<endl;
+                    cout<<"Patient's Region: "<<info.patient_address.region<<endl;
+                    cout<<"Patient's Town: "<<info.patient_address.town<<endl;
+                    cout<<"Patient's City: "<<info.patient_address.city<<endl;
+                    cout<<"Patient's Sub-City: "<<info.patient_address.sub_city<<endl;
+                    cout<<"Patient's Kebele: "<<info.patient_address.kebele<<endl;
+                    cout<<"Patient's House Number: "<<info.patient_address.house_number<<endl;
+                    cout<<"Now you can update patient's history: "<<endl;
+                    cin>>info.patient_history;
+                    break;
+        }
+
+    }
+    else
+        {
+          cout<<"Please Try Again: "<<endl;
+            goto line114;
+        }
+}
+
+
+
