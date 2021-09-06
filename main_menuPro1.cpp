@@ -578,6 +578,9 @@ void inpatient_reg()
             cout<<"\t\tWeight: ";
             cin>>patient_info[i].patient_weight;
             cout<<endl;
+            cout<<"\t\tHeight: ";
+            cin>>patient_info[i].patient_height;
+            cout<<endl;
             cout<<"\t\tEnter address: "<<endl;
             cout<<"\t\tCountry: ";
             cin>>patient_info[i].patient_address.country;
