@@ -192,7 +192,8 @@ struct MenuInterface
 
         cout<<"\t\t-----------Sign Up AS-----------\n";
 
-        cout<<"\t\t1. Patient\n";
+        cout<<"\t\t1. signup\n";
+	cout<<"\t\t2. hospital services\n"
         cout<<"\t\tTo Return Press 0\n";
 
         cout<<"\n\n\t\tInput: ";
@@ -201,6 +202,10 @@ struct MenuInterface
         if(input==1)
         {
             signUpDetails();
+        }
+	 else if(input==2)
+        {
+           hospital_services();
         }
     }
 
