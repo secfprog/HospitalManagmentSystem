@@ -557,20 +557,15 @@ patient pb[numofpatient];
 }
 void hospital_services()
  {
-	int noofservices;
-	cout<<"Enter no of services the hospital provides:"; 
-	cin>>noofservices;
-	
-  char services[noofservices][20];
-	cout<<"Enter services the hospital provides:";
-
-   for(int i=0 ; i<noofservices ;i++)
-        { gets(services[i]);}
-
-		cout<<"\n\n----------Sevices provided------------"<<endl;
-	
-		for(int i=0; i<=noofservices ;i++)
-		{cout<<i+1<<"|| "<<services[i]<<endl;	}
+	cout<<"----------Sevices provided------------"<<endl;
+	cout<<"1| Short-term hospitalization"<<endl;
+	cout<<"2| Emergency room services"<<endl;
+	cout<<"3| X-ray/radiology services"<<endl;
+	cout<<"4| Labratory services"<<endl;
+	cout<<"5| Covid examination"<<endl;
+	cout<<"6| Pharmeaceutical care"<<endl;
+	cout<<"7| Nutritional support"<<endl;
+}
 }
 void inpatient_reg()
 {
