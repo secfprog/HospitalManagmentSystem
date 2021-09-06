@@ -555,6 +555,23 @@ patient pb[n];
      
   }
 }
+void hospital_services()
+ {
+	int noofservices;
+	cout<<"Enter no of services the hospital provides:"; 
+	cin>>noofservices;
+	
+  char services[noofservices][20];
+	cout<<"Enter services the hospital provides:";
+
+   for(int i=0 ; i<noofservices ;i++)
+        { gets(services[i]);}
+
+		cout<<"\n\n----------Sevices provided------------"<<endl;
+	
+		for(int i=0; i<=noofservices ;i++)
+		{cout<<i+1<<"|| "<<services[i]<<endl;	}
+}
 void inpatient_reg()
 {
         int numofpatient;
