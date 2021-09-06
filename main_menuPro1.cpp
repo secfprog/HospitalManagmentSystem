@@ -34,7 +34,7 @@ struct relative
 struct reg_date_time
 {
     int reg_dd, reg_mm, reg_yy, reg_hr, reg_Min;
-}
+};
 
 //information provided by hospital representative about patients
 struct hospital_treatment
@@ -193,7 +193,7 @@ struct MenuInterface
         cout<<"\t\t-----------Sign Up AS-----------\n";
 
         cout<<"\t\t1. signup\n";
-	cout<<"\t\t2. hospital services\n"
+	cout<<"\t\t2. hospital services\n";
         cout<<"\t\tTo Return Press 0\n";
 
         cout<<"\n\n\t\tInput: ";
@@ -535,7 +535,7 @@ float range(char x,float bmi)
 }
 void read()
 {  
-int n;
+int numofpatient;
 cout<<"Number of patients: "<<endl;;
 cin>>numofpatient;	      
 patient pb[numofpatient];
@@ -571,7 +571,6 @@ void hospital_services()
 	cout<<"6| Pharmeaceutical care"<<endl;
 	cout<<"7| Nutritional support"<<endl;
 }
-}
 void inpatient_reg()
 {
         int numofpatient;
@@ -596,7 +595,7 @@ void inpatient_reg()
             cin>>patient_info[i].patient_weight;
             cout<<endl;
             cout<<"\t\tHeight: ";
-            cin>>patient_info[i].patient_height;
+            cin>>patient_info[i].patient_hegiht;
             cout<<endl;
             cout<<"\t\tEnter address: "<<endl;
             cout<<"\t\tCountry: ";
