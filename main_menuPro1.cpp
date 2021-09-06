@@ -571,6 +571,7 @@ void hospital_services()
 	cout<<"6| Pharmeaceutical care"<<endl;
 	cout<<"7| Nutritional support"<<endl;
 }
+
 void inpatient_reg()
 {
         int numofpatient;
@@ -1049,7 +1050,7 @@ void cases()    //function for the medical assessment and updating patient's his
                    cout<<"Patient's Email: "<<info.patient_email<<endl;
                    cout<<"Patient's Gender: "<<info.patient_sex<<endl;
                    cout<<"Patient's Weight: "<<info.patient_weight<<endl;
-                   cout<<"Patient's Arrival Date: "<<info.date_time.dd1<<" \ "<<info.date_time.mm1<<" \ "<<info.date_time.yy1<<endl;
+                   cout<<"Patient's Arrival Date: "<<info.date_time.reg_dd<<" \ "<<info.date_time.reg_mm<<" \ "<<info.date_time.reg_yy<<endl;
                    cout<<"Patient's Birthday: "<<info.patient_birthday.day<<" \ "<<info.patient_birthday.month<<" \ "<<info.patient_birthday.year<<endl;
                    cout<<"Patient's Phone Number: "<<info.patient_phone_number.area_code<<" \ "<<info.patient_phone_number.exchange_number<<" \ "<<info.patient_phone_number.u_number<<endl;
                    cout<<"Patient's Country: "<<info.patient_address.country<<endl;
