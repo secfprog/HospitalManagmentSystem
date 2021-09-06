@@ -532,9 +532,9 @@ void read()
 {  
 int n;
 cout<<"Number of patients: "<<endl;;
-cin>>n;	      
-patient pb[n];
-  for(int i=0;i<n;i++)
+cin>>numofpatient;	      
+patient pb[numofpatient];
+  for(int i=0;i<numofpatient;i++)
   { 
 	  cout<<"Enter your first name: "<<endl;	  
     	  cin>>pb[i].patient_fname;
