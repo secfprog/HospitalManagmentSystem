@@ -126,6 +126,7 @@ Doctor_model init_Doctor();
 void disease_severity();
 void cases();
 void cost(float x,float y,float z,float w);
+void hospital_services();
 struct MenuInterface
 {
     void mainMenu()
@@ -552,7 +553,6 @@ patient pb[n];
     	  cout<<"you are  "<<endl; 
 	  range(pb[i].patient_sex,BMI);
     	  cout<<endl;
-     
   }
 }
 void hospital_services()
