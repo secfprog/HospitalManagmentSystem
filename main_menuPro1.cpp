@@ -33,8 +33,8 @@ struct relative
 //inpatient registration date and time
 struct reg_date_time
 {
-    int dd1, mm1, yy1, hr, Min;
-};
+    int reg_dd, reg_mm, reg_yy, reg_hr, reg_Min;
+}
 
 //information provided by hospital representative about patients
 struct hospital_treatment
@@ -618,13 +618,13 @@ void inpatient_reg()
             cout<<endl;
             cout<<"\t\tRegistration date and time"<<endl;
             cout<<"\t\tMonth: ";
-            cin>>patient_info[i].date_time.mm1;
+            cin>>patient_info[i].date_time._mm;
             cout<<endl;
             cout<<"\t\tDate: ";
-            cin>>patient_info[i].date_time.dd1;
+            cin>>patient_info[i].date_time.dd;
             cout<<endl;
             cout<<"\t\tYear: ";
-            cin>>patient_info[i].date_time.yy1;
+            cin>>patient_info[i].date_time.yy;
             cout<<endl;
             cout<<"\t\tHour: ";
             cin>>patient_info[i].date_time.hr;
