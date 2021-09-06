@@ -1055,7 +1055,7 @@ void cost(float x,float y,float z,float w) //function for calculating the total 
     cout<<"Please enter Card, Hospital Service Charge and Other extra costs "<<endl;
     cin>>w;
     t_cost=x+n_days*y+z+w;
-    cout<<"The total cost is: "<<t_cost<<" BIRR ONLY "<<endl;;
+    cout<<"The total cost is: "<<t_cost<<" BIRR ONLY "<<endl;
 }
 
 
