@@ -159,8 +159,8 @@ struct MenuInterface
 
         cout<<"\t\t1. Service Administrator\n";
         cout<<"\t\t2. Doctor\n";
-        cout<<"\t\t3. Patient\n";
-        cout<<"\t\tPress 0 to Return\n";
+        cout<<"\t\t3. Press 0 to Return\n";
+        cout<<"\t\tAny other key to exit\n";
 
         cout<<"\t\tInput: ";
         cin>>input;
@@ -174,14 +174,15 @@ struct MenuInterface
         {
             LoginDetails("Doctor's");
         }
-        else if(input==3)
-        {
-            LoginDetails("Patient's");
-        }
-        else if(input==0)
+	    else if(input==0)
         {
             mainMenu();
         }
+	else 
+	{
+	    terminate();
+	}
+        
     }
 
     void signUpMenu()
@@ -220,14 +221,15 @@ struct MenuInterface
         {
             cout<<"!!!!!!!!!!!!!!!!!! Login Successfully !!!!!!!!!!!!!!!!!!! "<<endl;
             cout<<"*********** What do you want to do next ***************** "<<endl;
-            cout<<"press\n 1. To check on disease severity\n 2. For treatment authentication\n 3. For treatment nature\n 4. To check on cases\n 5. exit: "<<endl;
+            cout<<"press\n 1. To check on disease severity\n 2. For treatment authentication\n 3. For treatment nature\n 4. To check on cases\n 5. To calculate and read patient's BMI\n 6. exit: "<<endl;
             cin>>choice;
             switch(choice)
             {
-                line_a:case 1: disease_severity();
+               case 1: disease_severity();
                         cout<<"If you want to go to treatment authentication press 1: "<<endl;
                         cout<<"If you want to go to treatment nature press 2: "<<endl;
                         cout<<"If you want to go to cases press 3: "<<endl;
+                        cout<<"If you want to calculate and read BMI press 4: "<<endl;
                         cout<<"Press any other key to exit: "<<endl;
                         cin>>option;
                         switch(option)
@@ -238,13 +240,16 @@ struct MenuInterface
                                     break;
                             case 3: cases();
                                     break;
+                            case 4: read();
+                                    break;
                             default: break;
                         }
                         break;
-                line_b: case 2: treatment_authen();
+                case 2: treatment_authen();
                         cout<<"If you want to go to disease severity press 1: "<<endl;
                         cout<<"If you want to go to treatment nature press 2: "<<endl;
                         cout<<"If you want to go to cases press 3: "<<endl;
+                        cout<<"If you want to calculate and read BMI press 4: "<<endl;
                         cout<<"Press any other key to exit: "<<endl;
                         cin>>option;
                          switch(option)
@@ -255,13 +260,16 @@ struct MenuInterface
                                     break;
                             case 3: cases();
                                     break;
+                            case 4: read();
+                                    break;
                             default: break;
                         }
                         break;
-               line_c: case 3: treatment_nature();
+               case 3: treatment_nature();
                         cout<<"If you want to go to disease severity press 1: "<<endl;
                         cout<<"If you want to go to treatment authentication press 2: "<<endl;
                         cout<<"If you want to go to cases press 3: "<<endl;
+                        cout<<"If you want to calculate and read BMI press 4: "<<endl;
                         cout<<"Press any other key to exit: "<<endl;
                         cin>>option;
                          switch(option)
@@ -272,13 +280,16 @@ struct MenuInterface
                                     break;
                             case 3: cases();
                                     break;
+                            case 4: read();
+                                    break;
                             default: break;
                         }
                         break;
-                line_e: case 4: cases();
+                case 4: cases();
                         cout<<"If you want to go to disease severity press 1: "<<endl;
                         cout<<"If you want to go to treatment authentication press 2: "<<endl;
                         cout<<"If you want to go to treatment nature press 3: "<<endl;
+                        cout<<"If you want to calculate and read BMI press 4: "<<endl;
                         cout<<"Press any other key to exit: "<<endl;
                         cin>>option;
                          switch(option)
@@ -289,10 +300,33 @@ struct MenuInterface
                                     break;
                             case 3: treatment_nature;
                                     break;
+                            case 4: read();
+                                    break;
                             default: break;
                         }
                         break;
-                default: break;
+                case 5: read();
+                        cout<<"If you want to go to disease severity press 1: "<<endl;
+                        cout<<"If you want to go to treatment authentication press 2: "<<endl;
+                        cout<<"If you want to go to treatment nature press 3: "<<endl;
+                        cout<<"If you want to see cases press 4: "<<endl;
+                        cout<<"Press any other key to exit: "<<endl;
+                        cin>>option;
+                         switch(option)
+                        {
+                            case 1: disease_severity();
+                                    break;
+                            case 2: treatment_authen();
+                                    break;
+                            case 3: treatment_nature;
+                                    break;
+                            case 4: cases();
+                                    break;
+                            default: break;
+                        }
+                        break;
+
+                default: break; 
             }
 
 
@@ -494,24 +528,33 @@ float range(char x,float bmi)
 	}
 }
 void read()
-{  patient pb[500];
-	 int n;
-	cout<<"Number of patients=";      cin>>n;
-	
+{  
+int n;
+cout<<"Number of patients: "<<endl;;
+cin>>n;	      
+patient pb[n];
   for(int i=0;i<n;i++)
-  { cout<<"Enter your name ";	 cin>>pb[i].patient_fname; cin>>pb[i].patient_lname;
-    cout<<"Your gender=";    	 cin>>pb[i].patient_sex;
-    cout<<"Your weight=";    	 cin>>pb[i].patient_weight;
-    cout<<"Your height=";	 	 cin>>pb[i].patient_hegiht;
-    cout<<"Your bmi=";		
-		bmindex(pb[i].patient_weight,pb[i].patient_hegiht);
-    cout<<bmindex(pb[i].patient_weight,pb[i].patient_hegiht)<<endl;
-    
-    int BMI=bmindex(pb[i].patient_weight,pb[i].patient_hegiht);
-    cout<<"you are  "; range(pb[i].patient_sex,BMI);
-    cout<<endl;
+  { 
+	  cout<<"Enter your first name: "<<endl;	  
+    	  cin>>pb[i].patient_fname;
+	  cout<<"Enter your last name: "<<endl;
+	  cin>>pb[i].patient_lname;
+    	  cout<<"Your gender: "<<endl;
+	  cin>>pb[i].patient_sex;
+    	  cout<<"Your weight: "<<endl;
+	  cin>>pb[i].patient_weight;
+    	  cout<<"Your height: "<<endl;
+	  cin>>pb[i].patient_hegiht;
+    	  cout<<"Your bmi: "<<endl;;		
+	  bmindex(pb[i].patient_weight,pb[i].patient_hegiht);
+    	  cout<<bmindex(pb[i].patient_weight,pb[i].patient_hegiht)<<endl;
+    	  int BMI=bmindex(pb[i].patient_weight,pb[i].patient_hegiht);
+    	  cout<<"you are  "<<endl; 
+	  range(pb[i].patient_sex,BMI);
+    	  cout<<endl;
      
   }
+}
 void inpatient_reg()
 {
         int numofpatient;
