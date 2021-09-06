@@ -65,7 +65,7 @@ struct patient
   char patient_fname[25], patient_lname[25];
   int patient_age,patient_id;
   char patient_email[100];
-  char patient_sex[10];
+  char patient_sex;
   address patient_address;
   float patient_weight,patient_hegiht;
   date patient_birthday;
@@ -109,6 +109,9 @@ struct finance
     float card_cost,room_cost,xray_cost,mri_cost;
 };
 
+float bmindex(float w,float h);//function to calculate bmi
+float range(char x,float bmi);//function to determine bmi range
+void read();//function to accept patient information and display their bmi
 void inpatient_reg();   //inpatient registration form filled by patient
 void hospital_info();   //hospital information filled by hospital representative during inpatient registration
 void outpatient_reg();   //out patient registration form filled by the patient
@@ -469,7 +472,46 @@ int main()
     interface.mainMenu();
     return 0;
 }
-
+float bmindex(float w,float h)
+{
+  float bmi;
+  bmi=w/(h*h);
+  return bmi;
+}
+float range(char x,float bmi)
+{
+	if (x=='f'||x=='F')
+	{ if (bmi>30){cout<<"obese";}
+	    else if(bmi>24.8){cout<<"over weight";}
+	     else if(bmi>18.5){cout<<"normal";}
+	     else{cout<<"underweight";}
+	}
+	else 
+	{  if (bmi>30){cout<<"obese";}
+	     else if(bmi>25){cout<<"over weight";}
+	     else if(bmi>18.5){cout<<"normal";}
+	     else{cout<<"underweight";}	
+	}
+}
+void read()
+{  patient pb[500];
+	 int n;
+	cout<<"Number of patients=";      cin>>n;
+	
+  for(int i=0;i<n;i++)
+  { cout<<"Enter your name ";	 cin>>pb[i].patient_fname; cin>>pb[i].patient_lname;
+    cout<<"Your gender=";    	 cin>>pb[i].patient_sex;
+    cout<<"Your weight=";    	 cin>>pb[i].patient_weight;
+    cout<<"Your height=";	 	 cin>>pb[i].patient_hegiht;
+    cout<<"Your bmi=";		
+		bmindex(pb[i].patient_weight,pb[i].patient_hegiht);
+    cout<<bmindex(pb[i].patient_weight,pb[i].patient_hegiht)<<endl;
+    
+    int BMI=bmindex(pb[i].patient_weight,pb[i].patient_hegiht);
+    cout<<"you are  "; range(pb[i].patient_sex,BMI);
+    cout<<endl;
+     
+  }
 void inpatient_reg()
 {
         int numofpatient;
